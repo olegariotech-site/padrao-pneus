@@ -53,6 +53,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - Ícones de marcas baseados nos glifos de **Font Awesome Free Brands** (© Fonticons, Inc.), adaptados para uso local. [Licença CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Fonte e atribuição](https://fontawesome.com/license/free). Instagram e Facebook são marcas de seus titulares, sem endosso das plataformas.
 - Verificar visual e navegação reais em Android/iOS, notebooks e desktop antes de homologar o site.
 
+## Identidade visual — V0.3 (conceito)
+
+- Rodolfo confirmou que a **fachada atual** utiliza vermelho, azul e branco. Fotografias fornecidas pela OT, incluindo a fachada noturna, são a referência de identidade.
+- Paleta provisória de site: vermelho `#A72C3A`, azul `#254A73`, branco `#F3F5F7`, grafite `#101720`; vermelho claro `#FF9AA7` para contraste em textos sobre fundo escuro.
+- Aplicação no cabeçalho, botões, seções, favicon e poster de reserva do HERO.
+- Vídeo do HERO e botões das plataformas externas permanecem como antes.
+- Não utilizar DPaschoal ou Top Service como referência visual, parceria sugerida ou componente da nova identidade. Links de perfis existentes poderão ter nomes legados até o proprietário atualizá-los.
+- Logotipo e cores são **propostas**, não registros nem ativos oficiais, até aprovação do Rodolfo. Faltam arquivos finais e fotografias diurnas para validar tonalidades.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
