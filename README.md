@@ -134,6 +134,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Acessibilidade:** se o navegador indicar `prefers-reduced-motion: reduce`, animações e transformações são desativadas. Estados de foco por teclado mantidos.
 - Pendências: teste visual efetivo em Chrome/Edge desktop, Safari iOS e Chrome Android, incluindo sobreposição do botão flutuante e comportamento com menu aberto. Não homologado para publicação oficial.
 
+## Correção de estrutura — V0.8.2 (card fotográfico)
+
+- Substituído o **P gigante decorativo** pelo registro real de produtos/estoque `assets/04-estoque-pneus-e-produtos.webp` com JPG de reserva.
+- O card `div.feature-image.photo-ready.has-photo[data-photo-slot="estrutura"]` inclui `<picture>`, `alt` descritivo e overlay escuro para preservar legibilidade; tipografia e margens adaptadas a mobile.
+- Removido o pseudo-elemento CSS `content:'P'`, inclusive em navegadores sem suporte a `:has()`.
+- Texto provisório “Registros reais em preparação” foi substituído por uma descrição correspondente à fotografia. A fachada em si ainda aguarda imagem específica aprovada.
+- Verificação estrutural dos caminhos e CSS concluída. **Inspeção visual em navegadores desktop/Android/iOS e validação do registro fotográfico com Rodolfo continuam pendentes**.
+- Escopo apenas `desenvolvimento-v1`; sem alterações na `main`.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
