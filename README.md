@@ -73,6 +73,17 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - WhatsApp verde, Instagram, Facebook, mapa, horário, formulário e links existentes preservados.
 - **Pendente** auditoria visual em navegadores reais, dimensões mobile (320–430px), tablets e desktop; versão ainda não homologada e não oficial.
 
+## Sistema visual unificado — V0.5 (em homologação)
+
+- **Arquivo canônico:** `design-system.css`, carregado **depois** do `styles.css` legado. Ajustes de cor, tipografia, ritmos, botões, formulários e todas as seções devem ser feitos primeiro nesse arquivo, evitando empilhar correções novas no legado.
+- **Identidade própria:** Padrão Pneus, azul `#254A73`, vermelho `#A72C3A`, branco `#F3F5F7`; não adotar amarelo, vermelho Ferrari, marcas ou fontes proprietárias das referências automotivas.
+- **Fontes:** Barlow Condensed para títulos, Manrope para leitura, com fallbacks. Site usa Google Fonts em protótipo; reavaliar privacidade/auto-hospedagem antes do oficial.
+- **Ritmo editorial:** HERO cinematográfico escuro → Serviços claros → Estrutura azul escura → Diferenciais claros → Orçamento escuro → Localização clara → Rodapé escuro.
+- **Componentes:** escala de títulos, espaçamento 8–64px, botões retos sem sombras decorativas, linhas discretas, formulários e mapas com contraste adequado, redes sociais com identidade das plataformas e WhatsApp `#25D366`.
+- **Fotos:** o módulo `div.feature-image.photo-ready[data-photo-slot="fachada"]` está preparado para receber um `img.feature-photo` **somente após** upload e autorização; seguir `assets/photos/README.md`. Novas imagens de equipe/serviços deverão manter o tratamento editorial (sem arredondamentos exagerados ou imagens inventadas).
+- **Preservação:** vídeos desktop/mobile, links WhatsApp/Instagram/Facebook, mapa e formulário permanecem.
+- **Escopo:** somente branch `desenvolvimento-v1`. A `main` não recebe merge. Revisão visual e testes de navegador reais **pendentes** antes de apresentação final ao cliente.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
