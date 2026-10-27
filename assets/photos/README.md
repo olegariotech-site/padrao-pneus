@@ -1,10 +1,10 @@
 # Padrão Pneus — fotos reais (planejamento)
 
-Este diretório serve para receber **fotos reais autorizadas** da Padrão Pneus. Nesta versão **não há fotos do cliente publicadas** aqui.
+Este diretório é um guia de organização de futuras **fotos reais autorizadas** da Padrão Pneus. Fotografias de equipe e produtos já foram enviadas à pasta `assets/` (na raiz) e estão presentes na prévia, inclusive `assets/04-estoque-pneus-e-produtos.webp` no card da seção Nossa Estrutura. A foto definitiva da fachada ainda precisa de seleção e aprovação.
 
 ## Organização proposta
 
-- `fachada-atual.webp`: foto diurna, atualizada, da entrada e identidade própria da loja; módulo principal `data-photo-slot="fachada"` em `index.html`.
+- `fachada-atual.webp`: foto diurna, atualizada, da entrada e identidade própria da loja; futuro uso após aprovação; o módulo atual é `data-photo-slot="estrutura"` com foto interna real.
 - `equipe-atendimento.webp`: pessoas e atendimento, somente com autorização dos retratados.
 - `servico-pneus.webp`: pneus e serviço, com ambiente real.
 - `alinhamento.webp`: equipamento e trabalho real, caso seja prestado pela loja.
