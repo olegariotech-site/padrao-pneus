@@ -73,7 +73,39 @@
 
     <section class="quote section" id="orcamento" aria-labelledby="quote-title"><div class="container quote-layout"><div><span class="kicker">SUA PRÓXIMA PARADA</span><h2 id="quote-title">Seu orçamento<br><em>começa aqui.</em></h2><p>Selecione o serviço, informe seu veículo e gere uma mensagem pronta. O envio por WhatsApp será ativado após confirmação do número comercial com o proprietário.</p></div><form class="quote-form" id="quote-form"><label for="service">Qual serviço você procura?</label><select id="service" name="service" required><option value="">Selecione um serviço</option><option>Pneus</option><option>Alinhamento</option><option>Balanceamento</option><option>Outro serviço (consultar)</option></select><label for="vehicle">Qual é seu veículo?</label><input id="vehicle" name="vehicle" placeholder="Ex.: Onix 2021" maxlength="80" required><label for="details">Medida do pneu ou informação adicional (opcional)</label><input id="details" name="details" placeholder="Ex.: 195/55 R16, 4 unidades" maxlength="180"><button class="button button-primary" type="submit">Preparar meu pedido <span aria-hidden="true">↗</span></button><div id="quote-result" class="quote-result" aria-live="polite" hidden><p id="quote-message"></p><button type="button" id="copy-quote">Copiar mensagem</button></div></form></div></section>
 
-    <section class="location section" id="localizacao" aria-labelledby="location-title"><div class="container location-grid"><div><span class="kicker">EM VALINHOS</span><h2 id="location-title">Estamos na<br><em>sua rota.</em></h2><p>Rua Campos Salles, 902 — Valinhos/SP</p><p class="small-note">Endereço exibido para conferência antes da publicação oficial.</p><a class="button button-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Padrao%20Pneus%20Valinhos" target="_blank" rel="noopener noreferrer">Abrir no Google Maps <span aria-hidden="true">↗</span></a></div><div class="map-panel" aria-label="Indicação conceitual de localização"><span>VALINHOS</span><div class="map-marker">P</div><small>LOCALIZAÇÃO · CONFERIR</small></div></div></section>
+    <section class="location section" id="localizacao" aria-labelledby="location-title">
+      <div class="container location-grid">
+        <div class="location-details">
+          <span class="kicker">VENHA NOS VISITAR</span>
+          <h2 id="location-title">Estamos na<br><em>sua rota.</em></h2>
+          <address class="location-address">
+            <strong>Padrão Pneus</strong>
+            <span>Rua Campos Salles, 902</span>
+            <span>Vila Faustina II · Valinhos/SP</span>
+            <span>CEP 13272-350</span>
+          </address>
+          <div class="location-hours" aria-labelledby="hours-heading">
+            <h3 id="hours-heading">Horários de atendimento</h3>
+            <dl class="hours-list">
+              <div><dt>Segunda a sexta</dt><dd>08h às 18h</dd></div>
+              <div><dt>Sábado</dt><dd>Fechado</dd></div>
+              <div><dt>Domingo</dt><dd>Fechado</dd></div>
+            </dl>
+            <p class="small-note">Horários informados no Google em 27/10/2026; sujeitos a confirmação com a loja. Consulte em feriados.</p>
+          </div>
+          <div class="location-actions">
+            <a class="button button-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Padrao%20Pneus%20Rua%20Campos%20Salles%20902%20Valinhos%20SP&amp;query_place_id=ChIJidXtYMHNyJQRGzko9U-Gmbg" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização oficial da Padrão Pneus no Google Maps (nova aba)">Como chegar no Google Maps <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="tel:+551938695687" aria-label="Ligar para Padrão Pneus, telefone dezenove três oito seis nove cinco seis oito sete">Ligar: (19) 3869-5687</a>
+          </div>
+          <p class="small-note">Prévia em desenvolvimento: informações e nome exibido no Maps serão revisados com o proprietário.</p>
+        </div>
+        <div class="location-map">
+          <div class="location-map-title"><span>LOCALIZAÇÃO</span><strong>Padrão Pneus · Valinhos</strong></div>
+          <iframe title="Mapa da Padrão Pneus, Rua Campos Salles, 902, Valinhos" src="https://www.google.com/maps?q=Rua%20Campos%20Salles%2C%20902%2C%20Vila%20Faustina%20II%2C%20Valinhos%2C%20SP&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="location-map-footer"><span>Rua Campos Salles, 902</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Padrao%20Pneus%20Rua%20Campos%20Salles%20902%20Valinhos%20SP&amp;query_place_id=ChIJidXtYMHNyJQRGzko9U-Gmbg" target="_blank" rel="noopener noreferrer">Abrir mapa completo ↗</a></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer"><div class="container"><div class="footer-top"><span class="footer-brand">PADRÃO <b>PNEUS</b></span><a href="#topo">Voltar ao topo ↑</a></div><div class="footer-bottom"><span>Prévia não oficial. Conteúdo, marca, contato e imagens aguardam validação.</span><span>Conceito e desenvolvimento · Olegario Tech</span></div></div></footer>
