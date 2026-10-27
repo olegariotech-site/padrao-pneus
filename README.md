@@ -24,6 +24,16 @@ Os caminhos do `app.js` foram corrigidos para os nomes efetivos do upload. A rep
 Em Settings > Pages > Build and deployment > Deploy from a branch, selecionar desenvolvimento-v1 e /(root).
 Não modificar a main nem configurar o domínio do cliente nesta fase.
 
+
+## Localização e horários — prévia V0.2.2
+
+- Endereço de referência: Rua Campos Salles, 902, Vila Faustina II, Valinhos/SP, CEP 13272-350.
+- Google Maps: botão usando a ficha de estabelecimento atualmente existente (ainda com nome associado à rede Top Service/DPaschoal) e mapa incorporado por endereço.
+- Telefone divulgado: (19) 3869-5687.
+- Horários exibidos no Google em 27/10/2026: segunda a sexta, 08h–18h; sábado e domingo, fechado.
+- **Confirmar com Rodolfo** os horários, a nomenclatura do perfil do Google, o número de telefone e o endereço comercial antes da publicação oficial. Outros diretórios exibem 07h30 como horário de abertura.
+- O iframe de mapas carrega conteúdo de terceiros (Google); antes da versão oficial, revisar aviso de privacidade/consentimento e testar se o mapa identifica corretamente a entrada da loja.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
