@@ -125,6 +125,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - Pendências: confirmação visual com Rodolfo, pesquisa de originalidade/registrabilidade e conversão do texto SVG para contornos antes de aplicação gráfica definitiva. Veja `assets/branding/README.md`.
 - **Sem merge e sem publicação oficial autorizada.**
 
+## Microinterações de botões — V0.8.1
+
+- Movimento sutil integrado em `design-system.css`, sem JavaScript extra e sem alterar links ou mensagens.
+- **Desktop:** CTA vermelho com elevação de até 3px, reflexo discreto uma vez por hover, seta deslizando sutilmente; WhatsApp de orçamento com elevação e sombra verde. O botão flutuante preserva a expansão de legenda existente e acrescenta leve movimento do ícone ao hover.
+- **Android/iOS:** botões com área mínima de toque de 44px e realimentação visual ao pressionar (`:active`, escala de ~97%), sem exigir hover; CTA flutuante com resposta ao toque.
+- **Atenção visual:** único pulso suave de halo no WhatsApp flutuante a cada 10 segundos, sem alteração do verde `#25D366`. As CTAs do site mantêm vermelho `#A72C3A`.
+- **Acessibilidade:** se o navegador indicar `prefers-reduced-motion: reduce`, animações e transformações são desativadas. Estados de foco por teclado mantidos.
+- Pendências: teste visual efetivo em Chrome/Edge desktop, Safari iOS e Chrome Android, incluindo sobreposição do botão flutuante e comportamento com menu aberto. Não homologado para publicação oficial.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
