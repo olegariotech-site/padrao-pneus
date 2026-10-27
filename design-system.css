@@ -1026,3 +1026,133 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   }
   .button-primary::before{display:none}
 }
+
+
+/* OT FOOTER SIGNATURE MOBILE V0.8.3
+   Crédito transparente e visível para a Olegario Tech, sem disputar a marca do cliente.
+   Problema observado no Samsung/Chrome: WhatsApp flutuante encobria o crédito.
+   Solução: assinatura própria + reserva de área inferior na rolagem final. */
+.site-footer .footer-bottom{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(170px,300px);
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  padding-top:28px;
+}
+.site-footer .footer-credit{
+  min-width:0;
+  width:fit-content;
+  max-width:100%;
+}
+.site-footer .footer-credit-caption{
+  margin:0 0 10px;
+  color:#B7C7D8;
+  font:800 10px/1.5 var(--pp-font-body);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.site-footer .footer-credit-link{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  max-width:100%;
+  min-height:58px;
+  padding:9px 13px 9px 10px;
+  color:#F3F5F7;
+  border:1px solid rgba(225,238,249,.24);
+  border-left:3px solid var(--pp-red);
+  background:rgba(255,255,255,.025);
+  text-decoration:none;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.site-footer .footer-credit-monogram{
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 41px;
+  width:41px;height:41px;
+  background:#254A73;
+  color:#FFFFFF;
+  border:1px solid rgba(255,255,255,.22);
+  font:800 17px/1 var(--pp-font-display);
+  letter-spacing:-.02em;
+}
+.site-footer .footer-credit-name{
+  display:block;
+  min-width:0;
+  font:800 15px/1.2 var(--pp-font-body);
+  letter-spacing:.045em;
+  white-space:normal;
+}
+.site-footer .footer-credit-name small{
+  display:block;
+  margin-top:5px;
+  font:600 10px/1.4 var(--pp-font-body);
+  letter-spacing:0;
+  color:#BCCBDA;
+}
+.site-footer .footer-credit-arrow{
+  flex:0 0 auto;
+  align-self:center;
+  font:700 17px/1 var(--pp-font-body);
+  font-style:normal;
+  color:#D2DFEC;
+  margin-left:4px;
+}
+.site-footer .footer-credit-link:hover,
+.site-footer .footer-credit-link:focus-visible{
+  background:rgba(37,74,115,.24);
+  border-color:rgba(235,244,252,.58);
+  border-left-color:var(--pp-red);
+  color:#FFFFFF;
+  transform:translateY(-2px);
+}
+.site-footer .footer-credit-link:focus-visible{
+  outline:2px solid #FFFFFF;
+  outline-offset:3px;
+}
+.site-footer .footer-preview-note{
+  margin:0;
+  max-width:300px;
+  color:#AFC0D0;
+  font:500 11px/1.7 var(--pp-font-body);
+  text-align:left;
+}
+@media(max-width:850px){
+  .site-footer{
+    /* A assinatura e a nota ficam acima do WhatsApp fixo na rolagem final. */
+    padding-bottom:calc(112px + env(safe-area-inset-bottom, 0px));
+  }
+  .site-footer .footer-bottom{
+    grid-template-columns:minmax(0,1fr);
+    justify-items:start;
+    align-items:start;
+    gap:21px;
+  }
+  .site-footer .footer-preview-note{
+    max-width:440px;
+  }
+}
+@media(max-width:620px){
+  .site-footer .footer-bottom{gap:22px;padding-top:25px}
+  .site-footer .footer-credit{width:100%}
+  .site-footer .footer-credit-link{
+    width:min(100%,350px);
+    gap:10px;
+  }
+  .site-footer .footer-credit-name{font-size:14px}
+  .site-footer .footer-credit-name small{font-size:10px}
+}
+@media(max-width:350px){
+  .site-footer .footer-credit-link{padding:9px 8px;gap:8px}
+  .site-footer .footer-credit-monogram{width:36px;height:36px;flex-basis:36px}
+  .site-footer .footer-credit-name{font-size:13px}
+  .site-footer .footer-credit-name small{font-size:9px}
+  .site-footer .footer-credit-arrow{margin-left:0;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-footer .footer-credit-link{
+    transition:none;
+    transform:none;
+  }
+}
