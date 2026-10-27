@@ -878,3 +878,132 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .brand .brand-logo{width:176px}
   .site-footer .footer-logo{width:220px}
 }
+
+
+/* OT CTA MOTION V0.8.1 — interação leve, sem JS e compatível com toque.
+   Desktop: hover/focus com deslocamento, brilho e seta sutil.
+   Android/iOS: feedback :active sem depender de hover. Botão flutuante:
+   uma pulsação discreta e espaçada, sem flashes, preservando #25D366.
+   A11y: mínimo 44px de alvo e prefere movimento reduzido desativa os efeitos. */
+:root {
+  --pp-motion-ease:cubic-bezier(.22,.75,.28,1);
+  --pp-motion-fast:190ms;
+  --pp-motion-normal:320ms;
+}
+.button,.navigation .nav-cta,.social-icon-btn,.social-link,
+.products-more>summary,.quote-result-actions button {
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.button,.navigation .nav-cta,.quote-result-actions button {
+  transition:
+    transform var(--pp-motion-fast) var(--pp-motion-ease),
+    border-color var(--pp-motion-fast) ease,
+    background-color var(--pp-motion-fast) ease,
+    box-shadow var(--pp-motion-fast) ease;
+}
+.button > span[aria-hidden="true"],.navigation .nav-cta > span[aria-hidden="true"] {
+  display:inline-block;
+  transition:transform var(--pp-motion-normal) var(--pp-motion-ease);
+}
+.button-primary {
+  position:relative;overflow:hidden;
+  isolation:isolate;
+}
+.button-primary::before {
+  content:"";position:absolute;inset:-30% auto -30% -65%;
+  width:38%;z-index:-1;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  transform:translateX(-35%) skewX(-22deg);
+  transition:transform 600ms var(--pp-motion-ease);
+  pointer-events:none;
+}
+.button-primary > * { position:relative;z-index:1; }
+.whatsapp-send {
+  overflow:visible;
+  isolation:auto;
+}
+.whatsapp-send::before{display:none}
+/* O brilho não altera a identidade vermelha nem a verde do WhatsApp. */
+@media (hover:hover) and (pointer:fine) {
+  .button-primary:hover,.button-primary:focus-visible,
+  .work-gallery-cta .button:hover,.work-gallery-cta .button:focus-visible,
+  .products-cta .button:hover,.products-cta .button:focus-visible {
+    transform:translateY(-3px);
+    box-shadow:0 12px 26px rgba(0,0,0,.18);
+  }
+  .button-outline:hover,.button-outline:focus-visible,
+  .navigation .nav-cta:hover,.navigation .nav-cta:focus-visible {
+    transform:translateY(-2px);
+  }
+  .button-primary:hover::before,.button-primary:focus-visible::before {
+    transform:translateX(800%) skewX(-22deg);
+  }
+  .button:hover > span[aria-hidden="true"],
+  .button:focus-visible > span[aria-hidden="true"],
+  .navigation .nav-cta:hover > span[aria-hidden="true"],
+  .navigation .nav-cta:focus-visible > span[aria-hidden="true"] {
+    transform:translate(3px,-2px);
+  }
+  .whatsapp-float:hover .whatsapp-icon,
+  .whatsapp-float:focus-visible .whatsapp-icon{
+    transform:rotate(-7deg) scale(1.1);
+  }
+}
+/* O botão flutuante já expande no hover e permanece largo em celulares.
+   Este pulso ocupa só o começo de um ciclo de 10 segundos. */
+.whatsapp-float {
+  will-change:auto;
+  -webkit-touch-callout:none;
+}
+.whatsapp-icon {
+  transform-origin:50% 50%;
+  transition:transform var(--pp-motion-normal) var(--pp-motion-ease);
+}
+@keyframes pp-whatsapp-breathe {
+  0%,14%,100% {
+    box-shadow:0 7px 26px rgba(0,0,0,.36),0 0 0 0 rgba(37,211,102,.22);
+  }
+  5% {
+    box-shadow:0 7px 26px rgba(0,0,0,.36),0 0 0 8px rgba(37,211,102,.07);
+  }
+  10% {
+    box-shadow:0 7px 26px rgba(0,0,0,.36),0 0 0 13px rgba(37,211,102,0);
+  }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .whatsapp-float:not(:hover):not(:focus-visible){
+    animation:pp-whatsapp-breathe 10s ease-in-out infinite;
+  }
+}
+/* Em touch, movimento ocorre ao pressionar: sem hover preso no iOS. */
+@media (hover:none), (pointer:coarse) {
+  .button,.navigation .nav-cta,.social-icon-btn,.social-link,
+  .quote-result-actions button { min-height:44px; }
+  .button:active,.navigation .nav-cta:active,
+  .quote-result-actions button:active,
+  .work-gallery-cta .button:active,
+  .products-cta .button:active {
+    transform:scale(.97);
+    box-shadow:0 3px 9px rgba(0,0,0,.13);
+  }
+  .whatsapp-float:active {
+    transform:scale(.96);
+    filter:brightness(1.06);
+  }
+  .social-icon-btn:active,.social-link:active {transform:scale(.96)}
+  .button-primary::before{display:none}
+}
+/* Não mover os elementos se o usuário pedir menos animações. */
+@media (prefers-reduced-motion:reduce) {
+  .button,.navigation .nav-cta,.social-icon-btn,.social-link,
+  .products-more>summary,.quote-result-actions button,
+  .button > span[aria-hidden="true"],
+  .navigation .nav-cta > span[aria-hidden="true"],
+  .button-primary::before,.whatsapp-float,.whatsapp-icon {
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
+  }
+  .button-primary::before{display:none}
+}
