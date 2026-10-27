@@ -1,0 +1,428 @@
+/*
+  PADRÃO PNEUS | OT Design System V0.5
+  Responsável: OLEGARIO TECH — conceito não oficial.
+  Base visual: fachada atual (vermelho, azul e branco).
+  Direção editorial: tipografia contundente + leitura humana + fotografia real.
+  Este arquivo é a camada canônica de UI; carrega DEPOIS de styles.css.
+  Não use estilos/ativos/licenças proprietárias de marcas automotivas.
+*/
+:root{
+  --pp-red:#A72C3A;
+  --pp-red-hover:#BD3447;
+  --pp-red-ink:#922434;
+  --pp-blue:#254A73;
+  --pp-blue-night:#101D2D;
+  --pp-blue-deep:#15283D;
+  --pp-white:#F3F5F7;
+  --pp-paper:#F7F9FB;
+  --pp-paper-alt:#FFFFFF;
+  --pp-ink:#152A40;
+  --pp-copy:#405469;
+  --pp-muted-dark:#C8D4E2;
+  --pp-line-dark:rgba(220,232,244,.19);
+  --pp-line-light:#D4DDE6;
+  --pp-font-display:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  --pp-font-body:'Manrope','Segoe UI',Arial,sans-serif;
+  --pp-space-xs:8px;
+  --pp-space-sm:16px;
+  --pp-space-md:24px;
+  --pp-space-lg:40px;
+  --pp-space-xl:64px;
+  --pp-section-space:clamp(72px,7vw,112px);
+  --pp-max:1300px;
+}
+html{scroll-padding-top:90px}
+body{
+  font-family:var(--pp-font-body);
+  font-size:15px;
+  font-weight:500;
+  line-height:1.65;
+  background:var(--pp-blue-night);
+  color:var(--pp-white);
+}
+.container{max-width:var(--pp-max)}
+.section{padding-block:var(--pp-section-space)}
+.section .kicker{
+  display:block;
+  font-family:var(--pp-font-body);
+  font-size:11px;line-height:1.5;
+  font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+.section h2{
+  font-family:var(--pp-font-display);
+  font-size:clamp(46px,5.1vw,74px);
+  line-height:1.01;
+  font-weight:700;letter-spacing:.012em;
+  text-transform:uppercase;
+  text-wrap:balance;
+}
+.section h2 em{font-style:normal}
+.section h3{font-family:var(--pp-font-display);font-weight:700}
+.section p{font-family:var(--pp-font-body);line-height:1.75}
+.button{
+  border-radius:2px;
+  min-height:46px;
+  font-family:var(--pp-font-body);
+  font-size:12px;font-weight:800;
+  line-height:1.3;letter-spacing:.045em;
+  text-transform:uppercase;
+  box-shadow:none;
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+}
+.button:hover{transform:translateY(-1px)}
+.button-primary{background:var(--pp-red);border:1px solid var(--pp-red);color:#fff;box-shadow:none}
+.button-primary:hover,.button-primary:focus-visible{background:var(--pp-red-hover);border-color:var(--pp-red-hover);box-shadow:none}
+.button-outline{border:1px solid rgba(233,242,251,.48);background:transparent;color:var(--pp-white)}
+.button-outline:hover,.button-outline:focus-visible{background:rgba(37,74,115,.55);border-color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid #FFA9B5;outline-offset:3px;
+}
+/* Abertura cinematográfica — manter o vídeo, inclusive poster e fallback. */
+.site-header{background:linear-gradient(180deg,rgba(10,20,33,.94),rgba(10,20,33,.74) 80%,rgba(10,20,33,.1))}
+.brand-name,.footer-brand{font-family:var(--pp-font-display);letter-spacing:.035em}
+.navigation a:not(.social-icon-btn){font-family:var(--pp-font-body)}
+.hero{background:#08121e}
+.hero h1{font-family:var(--pp-font-display);text-wrap:balance}
+.hero .hero-proof{color:#c8d2df}
+.hero-footer{color:#d7e0ea}
+/* Seção 02 — editorial claro: serviços */
+.services{
+  background:var(--pp-paper);
+  color:var(--pp-ink);
+  border-top:0;border-bottom:1px solid var(--pp-line-light);
+}
+.services .kicker{color:var(--pp-red-ink)}
+.services .section-heading h2{color:var(--pp-ink)}
+.services .section-heading h2 em{color:var(--pp-red-ink)}
+.services .section-heading p{color:var(--pp-copy);font-size:15px}
+.services .service-grid{gap:0}
+.services .service-card{
+  min-height:290px;
+  border:0;border-left:1px solid var(--pp-line-light);
+  border-radius:0;
+  padding:32px clamp(22px,3vw,44px);
+  background:transparent;
+  box-shadow:none;
+}
+.services .service-card:first-child{border-left:3px solid var(--pp-red)}
+.services .service-card:hover{background:rgba(37,74,115,.045);box-shadow:none;transform:none}
+.services .service-card h3{
+  font-family:var(--pp-font-display);
+  font-size:clamp(36px,3.15vw,48px);
+  color:var(--pp-ink);
+  letter-spacing:.014em;
+  text-transform:uppercase;
+  margin:28px 0 12px;
+}
+.services .service-card p{color:var(--pp-copy);font-size:14px;line-height:1.75}
+.services .service-card a{
+  font-family:var(--pp-font-body);
+  font-size:12px;font-weight:800;
+  letter-spacing:.055em;text-transform:uppercase;
+  color:var(--pp-red-ink);
+  margin-top:auto;
+  text-underline-offset:4px;
+}
+.services .service-card a:hover{text-decoration:underline}
+.services .service-index{color:var(--pp-red-ink)}
+/* Seção 03 — foto real entrará neste módulo, sem reconstruir o layout. */
+.feature{
+  background:var(--pp-blue-deep);
+  color:#fff;
+}
+.feature-grid{gap:clamp(32px,6vw,84px)}
+.feature-copy .kicker{color:#F5AEB8}
+.feature-copy h2{color:#fff}
+.feature-copy h2 em{color:#F4ABB6}
+.feature-copy>p{font-size:15px;line-height:1.75;color:#D7E2EE}
+.feature-copy .text-link{
+  display:inline-block;
+  color:#fff;
+  border-bottom:1px solid #F4A6B1;
+  text-transform:uppercase;
+  font-family:var(--pp-font-body);
+  font-size:12px;letter-spacing:.07em;font-weight:800;
+}
+.feature-copy .text-link:hover{color:#FFB9C2}
+.feature-image.photo-ready{
+  isolation:isolate;
+  border:1px solid rgba(230,240,251,.2);
+  min-height:440px;
+  height:clamp(440px,45vw,570px);
+  margin:0;
+  overflow:hidden;
+  border-radius:0;
+  background:linear-gradient(150deg,#294E73 0%,#192F48 38%,#0A1420 100%);
+}
+.photo-ready .corner-motif{display:none}
+.photo-ready::before{
+  content:'';
+  position:absolute;inset:20px;
+  border:1px solid rgba(225,237,251,.16);
+  transform:none;
+  animation:none;
+  background:none;
+}
+.photo-ready::after{
+  content:'P';
+  position:absolute;
+  right:7%;top:7%;
+  font:700 clamp(190px,24vw,380px)/1 var(--pp-font-display);
+  color:rgba(224,237,250,.055);
+  pointer-events:none;
+}
+.feature-image.photo-ready .image-tag{
+  position:absolute;
+  top:40px;left:40px;
+  font:800 11px/1.5 var(--pp-font-body);
+  letter-spacing:.15em;color:#D9E7F5;
+  z-index:3;
+}
+.photo-ready .image-info{
+  left:40px;right:40px;bottom:40px;
+  z-index:3;max-width:480px;gap:11px
+}
+.photo-ready .image-info small{
+  color:#FFAFBA;font-size:11px;
+  letter-spacing:.13em;font-weight:800
+}
+.photo-ready .image-info strong{
+  font:700 clamp(35px,4.2vw,57px)/1.02 var(--pp-font-display);
+  text-transform:uppercase;
+  letter-spacing:.012em;
+}
+.photo-ready .image-info span{color:#DBE5F1;max-width:360px;font-size:13px;line-height:1.65}
+.photo-ready .feature-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  z-index:0;
+}
+.photo-ready:has(.feature-photo)::after{display:none}
+.photo-ready:has(.feature-photo)::before{
+  inset:0;
+  background:linear-gradient(0deg,rgba(6,15,27,.85),rgba(6,15,27,.13) 65%,rgba(6,15,27,.24));
+  border:0;
+  z-index:1;
+}
+/* Seção 04 — o diferencial muda para editorial claro: ritmo escuro/claro. */
+.advantages{
+  color:var(--pp-ink);
+  background:var(--pp-paper-alt);
+}
+.advantages .kicker{color:var(--pp-red-ink)}
+.advantages h2{color:var(--pp-ink)}
+.advantages h2 em{color:var(--pp-red-ink)}
+.advantages-grid{gap:clamp(20px,3vw,40px)}
+.advantages-grid>div{
+  padding-top:24px;
+  border-top:1px solid #CED8E2;
+}
+.advantages-grid>div:first-child{border-top:3px solid var(--pp-red)}
+.advantages-grid span{
+  font-family:var(--pp-font-display);
+  color:var(--pp-red-ink);
+  font-size:32px;line-height:1;
+}
+.advantages-grid h3{
+  font-family:var(--pp-font-display);
+  font-size:clamp(31px,3.2vw,42px);
+  text-transform:uppercase;line-height:1.05;
+  color:var(--pp-ink);
+  margin:28px 0 14px;
+}
+.advantages-grid p{color:var(--pp-copy);font-size:14px;line-height:1.75}
+/* Seção 05 — formulário elegante, sem ruído visual. */
+.quote{
+  color:#fff;background:var(--pp-blue-night);
+  border-block:0;
+}
+.quote .kicker{color:#F2AAB4}
+.quote h2{color:#fff}
+.quote h2 em{color:#F2AAB4}
+.quote-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,95px);align-items:center}
+.quote-layout>div>p{color:#D4E0ED;font-size:15px;line-height:1.75;max-width:450px}
+.quote-form{
+  padding:clamp(24px,3vw,42px);
+  border:1px solid rgba(232,240,249,.19);
+  border-top:3px solid var(--pp-red);
+  border-radius:0;
+  background:#16283D;
+  box-shadow:none;
+  gap:9px;
+}
+.quote-form label{
+  font-size:13px;font-weight:700;
+  color:#E7F0FA;
+  margin:0 0 3px;
+}
+.quote-form select,.quote-form input{
+  min-height:51px;
+  width:100%;
+  padding:0 14px;
+  border-radius:2px;
+  border:1px solid #5A7086;
+  background:#0F2033;
+  color:#fff;
+  font-family:var(--pp-font-body);
+  font-size:14px;
+  margin:0 0 14px;
+}
+.quote-form input::placeholder{color:#A6B5C4}
+.quote-form select:focus,.quote-form input:focus{border-color:#F2B3BE}
+.quote-form .button-primary{width:100%;margin-top:8px}
+.quote-result{
+  background:#203A51;border:1px solid rgba(255,255,255,.17);
+  border-radius:0;margin-top:16px;
+}
+.quote-result p{
+  color:#E8F1F8;font-size:13px;
+  white-space:pre-wrap;
+  line-height:1.7
+}
+.quote-result-actions{align-items:stretch}
+.quote-result-actions #copy-quote{
+  background:transparent;color:#fff;border:1px solid #8EA7BF;
+  padding:12px 16px;min-height:44px;
+  font-size:12px;font-weight:800;
+  border-radius:2px;
+}
+.quote-result-actions #copy-quote:hover{background:#34506B}
+.quote .whatsapp-send{
+  background:#25D366!important;border-color:#25D366!important;
+  color:#073B22!important;
+}
+.quote .whatsapp-send:hover{background:#3BE47B!important}
+/* Seção 06 — localização usa papel claro, texto escuro e mapa enquadrado. */
+.location{
+  color:var(--pp-ink);
+  background:var(--pp-paper);
+}
+.location .kicker{color:var(--pp-red-ink)}
+.location h2{color:var(--pp-ink)}
+.location h2 em{color:var(--pp-red-ink)}
+.location-grid{align-items:center;gap:clamp(30px,6vw,90px)}
+.location-address{
+  border-left:3px solid var(--pp-red);
+  color:var(--pp-ink);
+  font-family:var(--pp-font-body);
+  font-size:15px;
+}
+.location-address strong{color:var(--pp-ink);font-size:18px}
+.location-hours h3{
+  font-family:var(--pp-font-display);
+  color:var(--pp-ink);
+  font-size:29px;line-height:1.15;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.location .hours-list{border-top:1px solid var(--pp-line-light)}
+.location .hours-list>div{border-bottom:1px solid var(--pp-line-light);padding:12px 0}
+.location .hours-list dt{color:var(--pp-copy);font-size:14px}
+.location .hours-list dd{color:var(--pp-ink);font-size:14px;font-weight:800}
+.location .location-grid p,.location-grid .small-note{
+  color:#506276;font-size:12px;line-height:1.65;
+}
+.location .location-actions{margin-top:26px}
+.location .location-actions .button{
+  min-height:48px;padding:14px 17px;
+  text-transform:uppercase;letter-spacing:.045em
+}
+.location .location-actions .button-outline{
+  border:1px solid #8395AA;
+  color:var(--pp-ink);
+  background:transparent;
+}
+.location .location-actions .button-outline:hover{background:#E7EEF5;border-color:var(--pp-blue)}
+.location .location-map{
+  border:1px solid #C7D2DD;
+  border-radius:0;
+  background:#172B40;
+  box-shadow:none;
+}
+.location-map-title,.location-map-footer{
+  background:#172B40;
+  color:#fff;
+  font-family:var(--pp-font-body);
+}
+.location-map-title span{color:#FFB0BC}
+.location-map-footer{background:#14273A}
+.location-map-footer a{color:#FFD3D9}
+.location-map-footer a:hover{color:#fff}
+/* Rodapé — tipografia, bordas e espaçamento do mesmo sistema. */
+.site-footer{
+  background:#0B1623;
+  border-top:3px solid var(--pp-red);
+  color:var(--pp-white);
+  padding:clamp(45px,5.5vw,75px) 0 28px;
+}
+.site-footer .footer-top{padding-bottom:40px}
+.site-footer .footer-brand{
+  font-family:var(--pp-font-display);
+  font-size:clamp(31px,3.6vw,46px);
+  font-weight:800;letter-spacing:.035em;
+}
+.site-footer .footer-top>a{color:#DCE6F2;font-weight:800;font-size:12px}
+.site-footer .footer-top>a:hover{color:#FFB7C2}
+.site-footer .footer-social{margin:0 0 26px;padding:0 0 28px}
+.site-footer .footer-social-caption{
+  color:#D0DDEB;font-size:11px;letter-spacing:.13em
+}
+.site-footer .social-link{
+  border:1px solid rgba(232,240,250,.23);
+  border-radius:2px;
+  background:#182B40;
+  min-height:50px;
+  box-shadow:none;
+}
+.site-footer .social-link:hover{background:#263E55;box-shadow:none;transform:translateY(-1px)}
+.site-footer .social-badge{border-radius:2px}
+.site-footer .footer-bottom{
+  border-top:1px solid rgba(220,232,244,.15);
+  color:#B4C4D4;
+  font-size:11px;line-height:1.7;
+}
+/* WhatsApp e demais marcas mantêm suas cores oficiais. */
+.whatsapp-float{z-index:60}
+.whatsapp-send{font-family:var(--pp-font-body);text-transform:none;letter-spacing:0}
+@media(max-width:1150px){
+  .quote-layout{gap:45px}
+  .location-grid{gap:35px}
+}
+@media(max-width:850px){
+  .quote-layout,.location-grid{grid-template-columns:1fr}
+  .quote-layout{gap:30px;align-items:start}
+  .feature-grid{grid-template-columns:1fr;gap:24px}
+  .feature-image.photo-ready{height:440px;min-height:440px}
+  .location-map{min-height:420px}
+  .location-map iframe{min-height:340px}
+  .advantages-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+}
+@media(max-width:620px){
+  :root{--pp-section-space:68px}
+  .section h2{font-size:clamp(42px,10.5vw,58px)}
+  .section .kicker{font-size:10px;letter-spacing:.12em}
+  .services .service-grid,.advantages-grid{grid-template-columns:1fr}
+  .services .service-card{min-height:0;padding:28px 14px 30px 20px}
+  .services .service-card:first-child{border-left:0;border-top:3px solid var(--pp-red)}
+  .services .service-card:not(:first-child){border-left:0;border-top:1px solid var(--pp-line-light)}
+  .services .service-card h3{font-size:43px;margin:16px 0 11px}
+  .feature-image.photo-ready{height:390px;min-height:370px}
+  .feature-image.photo-ready .image-tag{top:24px;left:22px}
+  .photo-ready .image-info{left:22px;right:22px;bottom:28px}
+  .photo-ready .image-info strong{font-size:39px}
+  .advantages-grid>div{padding-top:18px}
+  .advantages-grid h3{margin:15px 0 11px}
+  .quote-form{padding:22px}
+  .location-grid{gap:28px}
+  .location-hours h3{font-size:28px}
+  .location-map{min-height:375px}
+  .location-map iframe{min-height:295px}
+  .location-actions{flex-direction:column}
+  .location-actions .button{width:100%;justify-content:space-between}
+  .site-footer .footer-top{padding-bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  .button,.social-link{transition:none!important;transform:none!important}
+}
