@@ -138,3 +138,61 @@
   .location-map-title,.location-map-footer { padding:12px; }
   .location-map-title strong { font-size:11px; }
 }
+
+
+
+/* OT Padrão Pneus — WhatsApp comercial | V0.2.3
+   Verde oficial #25D366, CTA revelado com hover/foco; em touch sempre visível. */
+.whatsapp-float {
+  --wa-green:#25D366; --wa-ink:#073b22;
+  position:fixed; z-index:55; right:clamp(14px,2.4vw,32px);
+  bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  width:60px; height:60px; display:inline-flex; align-items:center; gap:12px;
+  padding:0 17px; border-radius:100px; overflow:hidden;
+  white-space:nowrap; color:var(--wa-ink); background:var(--wa-green);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 7px 26px rgba(0,0,0,.36),0 0 0 4px rgba(37,211,102,.13);
+  transition:width .34s cubic-bezier(.22,.7,.3,1), background .22s, box-shadow .22s, transform .22s;
+  -webkit-tap-highlight-color:transparent;
+}
+.whatsapp-float:hover,.whatsapp-float:focus-visible,.whatsapp-float:focus-within { width:226px; }
+.whatsapp-float:hover,.whatsapp-float:focus-visible {
+  background:#38e278; box-shadow:0 13px 38px rgba(0,0,0,.47),0 0 0 6px rgba(37,211,102,.18);
+  transform:translateY(-2px);
+}
+.whatsapp-float:focus-visible { outline:3px solid #fff; outline-offset:4px; }
+.whatsapp-icon { width:26px; height:26px; min-width:26px; flex:0 0 26px; display:block; }
+.whatsapp-float-label {
+  font-size:12px; letter-spacing:.01em; font-weight:850; white-space:nowrap;
+  opacity:0; max-width:0; overflow:hidden; transition:opacity .22s ease,max-width .34s ease;
+}
+.whatsapp-float:hover .whatsapp-float-label,
+.whatsapp-float:focus-visible .whatsapp-float-label { opacity:1; max-width:175px; }
+.whatsapp-send {
+  background:#25D366; color:#073b22; border-color:#25D366;
+  font-size:12px; font-weight:800; padding:12px 15px;
+}
+.whatsapp-send:hover { background:#38e278; }
+.quote-result-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.quote-result-actions .button { margin:0; }
+@media (hover:none), (pointer:coarse) {
+  .whatsapp-float { width:198px; height:52px; padding:0 13px; gap:9px; }
+  .whatsapp-float-label { opacity:1; max-width:160px; font-size:11px; }
+  .whatsapp-icon { width:23px; height:23px; min-width:23px; flex-basis:23px; }
+  .whatsapp-float:hover,.whatsapp-float:focus-visible { width:198px; transform:none; }
+}
+@media(max-width:620px) {
+  .whatsapp-float {
+    right:12px; bottom:calc(12px + env(safe-area-inset-bottom,0px));
+    width:188px; height:49px; padding:0 12px; gap:9px;
+    box-shadow:0 6px 20px rgba(0,0,0,.38);
+  }
+  .whatsapp-float-label { opacity:1; max-width:150px; font-size:11px; }
+  .whatsapp-icon { width:23px; height:23px; min-width:23px; flex-basis:23px; }
+  .whatsapp-float:hover,.whatsapp-float:focus-visible { width:188px; }
+  .quote-result-actions { align-items:stretch; flex-direction:column; }
+  .quote-result-actions .button,.quote-result-actions button { width:100%; min-height:44px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .whatsapp-float,.whatsapp-float-label { transition:none; transform:none; }
+}
