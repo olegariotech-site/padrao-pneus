@@ -143,6 +143,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - Verificação estrutural dos caminhos e CSS concluída. **Inspeção visual em navegadores desktop/Android/iOS e validação do registro fotográfico com Rodolfo continuam pendentes**.
 - Escopo apenas `desenvolvimento-v1`; sem alterações na `main`.
 
+## Assinatura da Olegario Tech no rodapé — V0.8.3
+
+- Corrigido problema observado em screenshot de Samsung/Chrome: o botão flutuante do WhatsApp ocultava o crédito do desenvolvimento no fim do rodapé.
+- Rodapé agora apresenta **SITE DESENVOLVIDO POR · OLEGARIO TECH | Soluções Digitais para Negócios**, com monograma textual OT e link externo para `https://olegariotech.com.br/`.
+- A assinatura é visível e discreta, sem substituir o logotipo e a identidade principal do cliente Padrão Pneus. A mensagem de **prévia não oficial** foi preservada.
+- Mobile: layout em coluna e espaço inferior de segurança (`112px + safe-area-inset-bottom`) para que a assinatura possa ser visualizada por completo no fim da rolagem, sem colisão com o WhatsApp flutuante.
+- Desktop: crédito e nota organizados em duas colunas. Navegação por teclado e movimento reduzido preservados.
+- Código validado na `desenvolvimento-v1`. **Inspeção visual real em Android/iOS pendente**. Nenhuma alteração em `main`.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
