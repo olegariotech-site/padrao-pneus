@@ -44,6 +44,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - O clique abre o WhatsApp em nova aba. **Não envia mensagens automaticamente** nem constitui rastreamento de conversões neste protótipo.
 - Validar links, visual e eventuais sobreposições em Android/iOS e desktop antes de apresentar como site oficial.
 
+## Redes sociais — V0.2.4
+
+- Instagram: https://www.instagram.com/padraopneusautocenter/
+- Facebook: https://www.facebook.com/padraopneustopservice/
+- Links com acesso pelo menu e rodapé, abrindo em nova aba. Ícones locais SVG e botões responsivos, com hover e foco de teclado.
+- Identidade visual de cada rede preservada; os perfis são os atuais fornecidos pelo responsável da OT. A nomenclatura antiga do Facebook deverá ser revista com Rodolfo durante a independência da marca.
+- Ícones de marcas baseados nos glifos de **Font Awesome Free Brands** (© Fonticons, Inc.), adaptados para uso local. [Licença CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Fonte e atribuição](https://fontawesome.com/license/free). Instagram e Facebook são marcas de seus titulares, sem endosso das plataformas.
+- Verificar visual e navegação reais em Android/iOS, notebooks e desktop antes de homologar o site.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
