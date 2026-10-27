@@ -39,6 +39,8 @@ quoteForm?.addEventListener('submit',event=>{
  const details=document.querySelector('#details').value.trim();
  const result='Olá, equipe Padrão Pneus! Gostaria de solicitar um orçamento.\nServiço: '+service+'\nVeículo: '+vehicle+(details?'\nDetalhes: '+details:'');
  document.querySelector('#quote-message').textContent=result;
+ const sendQuote=document.querySelector('#send-quote');
+ if(sendQuote)sendQuote.href='https://wa.me/5519974215389?text='+encodeURIComponent(result);
  document.querySelector('#quote-result').hidden=false;
 });
 document.querySelector('#copy-quote')?.addEventListener('click',async event=>{
