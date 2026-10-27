@@ -8,8 +8,8 @@
 */
 :root{
   --pp-red:#A72C3A;
-  --pp-red-hover:#BD3447;
-  --pp-red-ink:#922434;
+  --pp-red-hover:var(--pp-red);
+  --pp-red-ink:var(--pp-red);
   --pp-blue:#254A73;
   --pp-blue-night:#101D2D;
   --pp-blue-deep:#15283D;
@@ -73,11 +73,11 @@ body{
 }
 .button:hover{transform:translateY(-1px)}
 .button-primary{background:var(--pp-red);border:1px solid var(--pp-red);color:#fff;box-shadow:none}
-.button-primary:hover,.button-primary:focus-visible{background:var(--pp-red-hover);border-color:var(--pp-red-hover);box-shadow:none}
+.button-primary:hover,.button-primary:focus-visible{background:var(--pp-red);border-color:var(--pp-red);box-shadow:none;outline:2px solid currentColor;outline-offset:2px}
 .button-outline{border:1px solid rgba(233,242,251,.48);background:transparent;color:var(--pp-white)}
 .button-outline:hover,.button-outline:focus-visible{background:rgba(37,74,115,.55);border-color:#fff}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:2px solid #FFA9B5;outline-offset:3px;
+  outline:2px solid #F3F5F7;outline-offset:3px;
 }
 /* Abertura cinematográfica — manter o vídeo, inclusive poster e fallback. */
 .site-header{background:linear-gradient(180deg,rgba(10,20,33,.94),rgba(10,20,33,.74) 80%,rgba(10,20,33,.1))}
@@ -133,19 +133,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   color:#fff;
 }
 .feature-grid{gap:clamp(32px,6vw,84px)}
-.feature-copy .kicker{color:#F5AEB8}
+.feature-copy .kicker{color:var(--pp-white)}
 .feature-copy h2{color:#fff}
-.feature-copy h2 em{color:#F4ABB6}
+.feature-copy h2 em{color:var(--pp-white)}
 .feature-copy>p{font-size:15px;line-height:1.75;color:#D7E2EE}
 .feature-copy .text-link{
   display:inline-block;
   color:#fff;
-  border-bottom:1px solid #F4A6B1;
+  border-bottom:1px solid var(--pp-red);
   text-transform:uppercase;
   font-family:var(--pp-font-body);
   font-size:12px;letter-spacing:.07em;font-weight:800;
 }
-.feature-copy .text-link:hover{color:#FFB9C2}
+.feature-copy .text-link:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
 .feature-image.photo-ready{
   isolation:isolate;
   border:1px solid rgba(230,240,251,.2);
@@ -185,7 +185,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   z-index:3;max-width:480px;gap:11px
 }
 .photo-ready .image-info small{
-  color:#FFAFBA;font-size:11px;
+  color:var(--pp-white);font-size:11px;
   letter-spacing:.13em;font-weight:800
 }
 .photo-ready .image-info strong{
@@ -238,9 +238,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   color:#fff;background:var(--pp-blue-night);
   border-block:0;
 }
-.quote .kicker{color:#F2AAB4}
+.quote .kicker{color:var(--pp-white)}
 .quote h2{color:#fff}
-.quote h2 em{color:#F2AAB4}
+.quote h2 em{color:var(--pp-white)}
 .quote-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,95px);align-items:center}
 .quote-layout>div>p{color:#D4E0ED;font-size:15px;line-height:1.75;max-width:450px}
 .quote-form{
@@ -270,7 +270,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   margin:0 0 14px;
 }
 .quote-form input::placeholder{color:#A6B5C4}
-.quote-form select:focus,.quote-form input:focus{border-color:#F2B3BE}
+.quote-form select:focus,.quote-form input:focus{border-color:var(--pp-white)}
 .quote-form .button-primary{width:100%;margin-top:8px}
 .quote-result{
   background:#203A51;border:1px solid rgba(255,255,255,.17);
@@ -346,9 +346,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   color:#fff;
   font-family:var(--pp-font-body);
 }
-.location-map-title span{color:#FFB0BC}
+.location-map-title span{color:var(--pp-white)}
 .location-map-footer{background:#14273A}
-.location-map-footer a{color:#FFD3D9}
+.location-map-footer a{color:var(--pp-white);text-decoration:underline;text-underline-offset:3px}
 .location-map-footer a:hover{color:#fff}
 /* Rodapé — tipografia, bordas e espaçamento do mesmo sistema. */
 .site-footer{
@@ -364,7 +364,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   font-weight:800;letter-spacing:.035em;
 }
 .site-footer .footer-top>a{color:#DCE6F2;font-weight:800;font-size:12px}
-.site-footer .footer-top>a:hover{color:#FFB7C2}
+.site-footer .footer-top>a:hover{color:var(--pp-white);text-decoration:underline;text-underline-offset:3px}
 .site-footer .footer-social{margin:0 0 26px;padding:0 0 28px}
 .site-footer .footer-social-caption{
   color:#D0DDEB;font-size:11px;letter-spacing:.13em
@@ -426,3 +426,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 @media(prefers-reduced-motion:reduce){
   .button,.social-link{transition:none!important;transform:none!important}
 }
+
+
+/* OT Brand Color Lock V0.5.1 — único vermelho institucional.
+   Em superfícies escuras: títulos/legendas brancos, vermelho só em detalhes geométricos.
+   Em superfícies claras: o mesmo vermelho (#A72C3A) em palavras, índices e ações.
+   Logos de WhatsApp, Facebook e Instagram mantêm as cores oficiais das plataformas. */
+:root{
+  --pp-red:#A72C3A;
+  --pp-red-hover:var(--pp-red);
+  --pp-red-ink:var(--pp-red);
+}
+.brand-symbol span {color:var(--pp-red)}
+.navigation>a:hover,.navigation>a:focus-visible {color:var(--pp-white)}
+.hero .hero-line-accent{color:#fff}
+.services .kicker,.services .service-index,.services .service-card a,
+.services .section-heading h2 em,
+.advantages .kicker,.advantages h2 em,.advantages-grid span,
+.location .kicker,.location h2 em{
+  color:var(--pp-red)
+}
+.feature-copy .kicker,.feature-copy h2 em,
+.quote .kicker,.quote h2 em{color:var(--pp-white)}
+.feature-copy h2::after,.quote h2::after{
+  content:"";
+  display:block;
+  width:64px;height:3px;
+  background:var(--pp-red);
+  margin-top:clamp(15px,2.2vw,23px);
+}
+.feature-copy .text-link{border-bottom-color:var(--pp-red);color:#fff}
+.feature-copy .text-link:hover,.site-footer .footer-top>a:hover{
+  color:#fff;text-decoration:underline;text-underline-offset:4px
+}
+.feature-image.photo-ready .image-tag,
+.photo-ready .image-info small,
+.location-map-title span,.location-map-footer a{color:var(--pp-white)}
+.quote-form{border-top-color:var(--pp-red)}
+.quote-form input:focus-visible,.quote-form select:focus-visible,
+.quote-form input:focus,.quote-form select:focus{outline:2px solid var(--pp-white);outline-offset:2px}
+.button-primary,.button-primary:hover,.button-primary:focus-visible{
+  background:var(--pp-red);
+  border-color:var(--pp-red);
+  color:#fff;
+}
+.button-primary:hover{transform:translateY(-2px);border-color:#fff}
+.services a:focus-visible,.advantages a:focus-visible,.location a:focus-visible{
+  outline:2px solid var(--pp-red);outline-offset:3px
+}
+@media(prefers-reduced-motion:reduce){.button-primary:hover{transform:none}}
