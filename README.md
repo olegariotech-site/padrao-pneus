@@ -115,6 +115,16 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Identidade:** azul profundo, branco e único vermelho `#A72C3A`, Barlow Condensed/Manrope, linhas discretas. CSS no `design-system.css`, preservando o HERO e galeria “Nossa equipe em ação”.
 - **Antes da publicação oficial:** validar que as fotos representam o espaço atual, que existe autorização de uso das imagens e que o mobile/desktop foram homologados. Sem merge na `main`.
 
+## Identidade aplicada — Logotipo V0.8 (conceito)
+
+- Logotipo horizontal novo em SVG, com símbolo **P** de geometria própria e traços inspirados em pneu, aplicado ao **cabeçalho e rodapé**.
+- Versão para fundo escuro: `assets/branding/padrao-pneus-horizontal-dark.svg` (branco/vermelho). Versão para fundo claro: `assets/branding/padrao-pneus-horizontal-light.svg` (azul/vermelho).
+- Ícone isolado em `assets/branding/padrao-pneus-symbol.svg` e favicon atualizado em `assets/favicon.svg`.
+- Cores da identidade da fachada preservadas: `#254A73`, `#A72C3A`, `#F3F5F7`. Ajustes responsivos em `design-system.css`.
+- A apresentação conceitual gerada por IA orienta a direção; os arquivos SVG de aplicação são **novos desenhos vetoriais simplificados**, não uma extração literal do mockup.
+- Pendências: confirmação visual com Rodolfo, pesquisa de originalidade/registrabilidade e conversão do texto SVG para contornos antes de aplicação gráfica definitiva. Veja `assets/branding/README.md`.
+- **Sem merge e sem publicação oficial autorizada.**
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
