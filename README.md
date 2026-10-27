@@ -34,6 +34,16 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Confirmar com Rodolfo** os horários, a nomenclatura do perfil do Google, o número de telefone e o endereço comercial antes da publicação oficial. Outros diretórios exibem 07h30 como horário de abertura.
 - O iframe de mapas carrega conteúdo de terceiros (Google); antes da versão oficial, revisar aviso de privacidade/consentimento e testar se o mapa identifica corretamente a entrada da loja.
 
+
+## WhatsApp comercial — V0.2.3
+
+- Contato informado pela OT: **+55 (19) 97421-5389**.
+- Botão flutuante verde oficial do WhatsApp (`#25D366`) com expansão do convite “Peça seu orçamento” ao passar o mouse ou receber foco por teclado.
+- Em aparelhos com toque, o convite permanece visível e não depende de hover.
+- Mensagem de abertura pré-preenchida; o formulário de cotação também prepara uma mensagem personalizada e permite enviá-la diretamente pelo WhatsApp.
+- O clique abre o WhatsApp em nova aba. **Não envia mensagens automaticamente** nem constitui rastreamento de conversões neste protótipo.
+- Validar links, visual e eventuais sobreposições em Android/iOS e desktop antes de apresentar como site oficial.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
