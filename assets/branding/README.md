@@ -28,4 +28,4 @@ O cabeçalho e o rodapé carregam `padrao-pneus-horizontal-dark.svg`. O favicon 
 4. Realizar busca de anterioridade e análise de distintividade no **INPI** e, se necessário, consulta especializada. Não afirmar exclusividade jurídica sem essa etapa.
 5. Não incorporar marcas de fabricantes ou redes como parte da identidade própria.
 
-Oligario Tech / Padrão Pneus — desenvolvimento experimental autorizado; publicação oficial pendente.
+Olegario Tech / Padrão Pneus — desenvolvimento experimental autorizado; publicação oficial pendente.
