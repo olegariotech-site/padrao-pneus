@@ -93,6 +93,17 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Exceção intencional:** WhatsApp, Facebook e Instagram mantêm as cores oficiais das plataformas. O azul institucional e branco da Padrão Pneus são preservados.
 - Arquivos ajustados: `design-system.css` (fonte de verdade) e `styles.css` (eliminação dos tons conflitantes). **Publicação oficial, inspeção visual final e testes mobile continuam pendentes.**
 
+## Galeria editorial — Nossa equipe em ação V0.6 (prévia)
+
+- **Posição:** após a seção Serviços e antes de Nossa estrutura.
+- **Arquivos de origem:** 8 fotografias JPG e 7 versões WebP em `assets/`, enviadas diretamente pela OT em 27/10/2026. Os originais permanecem intactos; não houve remoção ou renomeação.
+- **Faltante:** `assets/01-alinhamento-equipamento.webp`. Enquanto não for enviado, a primeira foto usa `assets/01-alinhamento-equipamento.jpg`. Os sete demais módulos usam `<picture><source type="image/webp">...` com JPG de reserva.
+- **Experiência:** 8 imagens com corte responsivo, legendas editoriais e efeito discreto de hover; carregamento diferido, sem biblioteca externa. Desktop 4 colunas com foto em destaque, tablet 2 colunas e mobile 1 coluna.
+- **Mensagem:** “Gente de verdade. Cuidado em cada detalhe.”. CTA “Fale com quem cuida do seu carro” abre a conversa no WhatsApp `+55 (19) 97421-5389` com texto predefinido, sem envio automático.
+- **Serviços:** legendas descrevem os registros; não confirmam que toda modalidade fotografada está disponível hoje. Validar com Rodolfo antes do lançamento oficial.
+- **Privacidade:** não publicar como material promocional definitivo antes de confirmar autorização dos profissionais retratados. As imagens já estão acessíveis no repositório público da prévia, portanto é importante verificar as permissões.
+- **Otimização:** para a versão oficial, confirmar licença/autorizações, dimensões e qualidade das imagens em navegadores reais; avaliar mover originais para um arquivo separado se necessário, preservando links publicados.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
