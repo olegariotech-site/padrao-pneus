@@ -83,3 +83,58 @@
   .hero .actions .button { padding-block: 9px; min-height: 40px; }
   .hero-proof { display: none; }
 }
+
+
+/* OT — LOCALIZAÇÃO V0.2.2 | Dados comerciais + Google Maps */
+.location-grid { align-items: stretch; gap: clamp(24px,4vw,64px); }
+.location-details { display:flex; flex-direction:column; justify-content:center; min-width:0; }
+.location-details h2 { margin-bottom:24px; }
+.location-address {
+  display:flex; flex-direction:column; gap:5px; padding-left:16px;
+  border-left:3px solid var(--accent); font-style:normal; color:#dce1e6;
+  font-size:clamp(14px,1.25vw,17px); line-height:1.35;
+}
+.location-address strong { font-size:18px; color:#fff; margin-bottom:3px; }
+.location-hours { margin-top:27px; }
+.location-hours h3 { font-size:19px; margin-bottom:13px; font-weight:800; letter-spacing:-.025em; }
+.hours-list { margin:0; padding:0; max-width:410px; border-top:1px solid var(--line); }
+.hours-list>div {
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:15px; padding:11px 0; border-bottom:1px solid var(--line);
+}
+.hours-list dt { font-size:13px; color:#c6ced7; }
+.hours-list dd { font-size:13px; font-weight:700; color:#f5f6f8; margin:0; text-align:right; white-space:nowrap; }
+.location-grid .small-note { font-size:11px; line-height:1.55; color:#a4afb9; margin:12px 0 0; max-width:470px; }
+.location-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:21px; }
+.location-actions .button { margin:0; font-size:12px; padding:14px 17px; gap:12px; }
+.location-map {
+  min-height:480px; display:flex; flex-direction:column; overflow:hidden; border-radius:12px;
+  border:1px solid rgba(255,255,255,.16); background:#131921;
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
+}
+.location-map-title,.location-map-footer {
+  display:flex; justify-content:space-between; align-items:center;
+  gap:14px; padding:15px 17px;
+}
+.location-map-title { background:#181e25; border-bottom:1px solid var(--line); }
+.location-map-title span { font-size:10px; font-weight:800; letter-spacing:.15em; color:var(--accent2); }
+.location-map-title strong { font-size:12px; text-align:right; }
+.location-map iframe { display:block; border:0; width:100%; min-height:390px; flex:1; background:#202833; }
+.location-map-footer { border-top:1px solid var(--line); background:#151a20; font-size:11px; color:#c5ced7; }
+.location-map-footer a { color:var(--accent2); font-weight:750; white-space:nowrap; }
+.location-map-footer a:hover { text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:850px) {
+  .location-grid { gap:30px; }
+  .location-map { min-height:410px; }
+  .location-map iframe { min-height:330px; }
+}
+@media (max-width:620px) {
+  .location-details h2 { margin-bottom:20px; }
+  .location-hours { margin-top:22px; }
+  .location-actions { flex-direction:column; }
+  .location-actions .button { width:100%; min-height:48px; justify-content:space-between; }
+  .location-map { min-height:370px; }
+  .location-map iframe { min-height:300px; }
+  .location-map-title,.location-map-footer { padding:12px; }
+  .location-map-title strong { font-size:11px; }
+}
