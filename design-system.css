@@ -912,7 +912,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .button-primary::before {
   content:"";position:absolute;inset:-30% auto -30% -65%;
-  width:38%;z-index:-1;
+  width:38%;z-index:0;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
   transform:translateX(-35%) skewX(-22deg);
   transition:transform 600ms var(--pp-motion-ease);
@@ -931,6 +931,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .products-cta .button:hover,.products-cta .button:focus-visible {
     transform:translateY(-3px);
     box-shadow:0 12px 26px rgba(0,0,0,.18);
+  }
+  .whatsapp-send:hover,.whatsapp-send:focus-visible {
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(37,211,102,.22);
   }
   .button-outline:hover,.button-outline:focus-visible,
   .navigation .nav-cta:hover,.navigation .nav-cta:focus-visible {
