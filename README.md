@@ -84,6 +84,15 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Preservação:** vídeos desktop/mobile, links WhatsApp/Instagram/Facebook, mapa e formulário permanecem.
 - **Escopo:** somente branch `desenvolvimento-v1`. A `main` não recebe merge. Revisão visual e testes de navegador reais **pendentes** antes de apresentação final ao cliente.
 
+## Cor institucional unificada — V0.5.1
+
+- **Um único vermelho de marca:** `#A72C3A` aplicado a CTAs, filetes, números e destaques nas seções claras. Não usar vermelho rosado, vinho alternativo ou gradientes vermelhos na UI.
+- **Seções escuras:** títulos, microtextos e destaques verbais em branco/off-white; filetes de 3px e bordas em `#A72C3A`. Isso evita letras vermelhas sobre azul escuro com contraste insuficiente.
+- **Seções claras:** texto de destaque vermelho `#A72C3A` sobre branco. Contraste estimado ~6,49:1 sobre `#F7F9FB`. Sobre `#101D2D`, o mesmo vermelho tem apenas ~2,48:1; por isso não se aplica a letras sobre fundo escuro.
+- **Ações:** preenchimento vermelho uniforme; estados hover/foco usam movimento discreto e contorno sem adotar outra tonalidade vermelha.
+- **Exceção intencional:** WhatsApp, Facebook e Instagram mantêm as cores oficiais das plataformas. O azul institucional e branco da Padrão Pneus são preservados.
+- Arquivos ajustados: `design-system.css` (fonte de verdade) e `styles.css` (eliminação dos tons conflitantes). **Publicação oficial, inspeção visual final e testes mobile continuam pendentes.**
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
