@@ -62,6 +62,17 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - Não utilizar DPaschoal ou Top Service como referência visual, parceria sugerida ou componente da nova identidade. Links de perfis existentes poderão ter nomes legados até o proprietário atualizá-los.
 - Logotipo e cores são **propostas**, não registros nem ativos oficiais, até aprovação do Rodolfo. Faltam arquivos finais e fotografias diurnas para validar tonalidades.
 
+## Redesign editorial humanizado — V0.4 (protótipo)
+
+- Referências de linguagem fornecidas pelo proprietário OT: extrações de estilo dos sites Ferrari e Lamborghini. Referências conceituais de **composição**, **escala de tipos**, **ritmo visual** e **respiro**, sem reproduzir identidades, conteúdo, imagens, logotipos ou fontes proprietárias.
+- A marca do cliente continua independente, usando o **azul, vermelho e branco da fachada atual**: `#254A73`, `#A72C3A` e `#F3F5F7`.
+- Tipografia: **Barlow Condensed** para títulos com personalidade e **Manrope** para textos claros e humanos. Carregamento inicial pelo Google Fonts com `display=swap`, acompanhado de fallbacks; avaliar auto-hospedagem autorizada, privacidade e performance antes da versão oficial.
+- HERO: título mais direto e humano, vídeo existente mantido, botões e prova comercial preservados, layout compacto.
+- Serviços: fundo editorial claro, cards sem decoração excessiva, tipografia com mais expressão; outras seções ajustadas em contraste, ritmo e linguagem.
+- As medidas da extração são inspiração e **não devem ser copiadas literalmente**: corpo de 7–11px, headline de 120px, amarelo Lamborghini e FerrariSans/LamboType não entram na identidade OT.
+- WhatsApp verde, Instagram, Facebook, mapa, horário, formulário e links existentes preservados.
+- **Pendente** auditoria visual em navegadores reais, dimensões mobile (320–430px), tablets e desktop; versão ainda não homologada e não oficial.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
