@@ -840,3 +840,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .products-tile:hover img{filter:none;transform:none}
   .products-more-symbol{transition:none}
 }
+
+
+/* OT LOGOTIPO V0.8 — identidade Padrão Pneus, conceito vetorial para homologação.
+   O símbolo geométrico e o wordmark usam SVG locais; nenhuma fonte externa é carregada pelo componente.
+   Favicon acompanha o monograma. */
+.brand{display:inline-flex;align-items:center;flex:0 0 auto;gap:0;min-width:0}
+.brand .brand-logo{
+  width:clamp(190px,17.2vw,264px);
+  height:auto;
+  display:block;
+  object-fit:contain;
+  max-width:100%;
+  filter:none;
+}
+.site-footer .footer-logo{
+  display:block;
+  width:clamp(225px,22vw,315px);
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+}
+@media(min-width:851px) and (max-width:1220px){
+  .brand .brand-logo{width:205px}
+  .site-header .header-inner{gap:22px}
+}
+@media(max-width:850px){
+  .brand .brand-logo{width:224px}
+  .site-header .header-inner{gap:14px}
+  .site-footer .footer-logo{width:270px}
+}
+@media(max-width:420px){
+  .brand .brand-logo{width:195px}
+  .site-footer .footer-logo{width:242px}
+}
+@media(max-width:340px){
+  .brand .brand-logo{width:176px}
+  .site-footer .footer-logo{width:220px}
+}
