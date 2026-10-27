@@ -165,14 +165,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   animation:none;
   background:none;
 }
-.photo-ready::after{
-  content:'P';
-  position:absolute;
-  right:7%;top:7%;
-  font:700 clamp(190px,24vw,380px)/1 var(--pp-font-display);
-  color:rgba(224,237,250,.055);
-  pointer-events:none;
-}
+.photo-ready::after{content:none;display:none}
 .feature-image.photo-ready .image-tag{
   position:absolute;
   top:40px;left:40px;
@@ -199,12 +192,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   object-fit:cover;object-position:center;
   z-index:0;
 }
-.photo-ready:has(.feature-photo)::after{display:none}
-.photo-ready:has(.feature-photo)::before{
+
+.photo-ready.has-photo::before{
   inset:0;
   background:linear-gradient(0deg,rgba(6,15,27,.85),rgba(6,15,27,.13) 65%,rgba(6,15,27,.24));
   border:0;
   z-index:1;
+}
+/* Foto real na estrutura — contraste consistente desktop e mobile, sem letra decorativa. */
+.feature-image.photo-ready.has-photo{
+  background:#15283D;
+}
+.feature-image.has-photo .feature-photo{
+  object-fit:cover;
+  object-position:center 48%;
+  filter:saturate(.94) contrast(1.03);
+}
+.feature-image.has-photo .image-tag{
+  text-shadow:0 1px 7px rgba(0,0,0,.5);
+}
+.feature-image.has-photo .image-info{
+  max-width:min(465px,calc(100% - 60px));
+  text-shadow:0 2px 12px rgba(0,0,0,.42);
+}
+@media(max-width:620px){
+  .feature-image.has-photo .image-tag{top:22px;left:22px}
+  .feature-image.has-photo .image-info{left:22px;right:22px;bottom:24px;max-width:calc(100% - 44px)}
+  .feature-image.has-photo .image-info strong{font-size:clamp(29px,8.2vw,40px)}
+  .feature-image.has-photo .image-info span{font-size:12px}
 }
 /* Seção 04 — o diferencial muda para editorial claro: ritmo escuro/claro. */
 .advantages{
