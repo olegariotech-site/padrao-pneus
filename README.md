@@ -10,14 +10,14 @@
 - robots.txt e meta tags de noindex: mitigam indexação da prévia; não impedem que terceiros acessem o endereço público.
 - Marca e contatos provisórios, sem credenciais nem dados de clientes.
 
-## V0.2 — upload dos vídeos pendente
+## V0.2 — vídeos integrados à branch de desenvolvimento
 
-Para concluir o HERO em vídeo, subir manualmente os dois arquivos de mídia na branch desenvolvimento-v1, preservando os caminhos:
+Os arquivos de vídeo estão na pasta `assets/`:
 
-- assets/hero-desktop.mp4
-- assets/hero-mobile.mp4
+- `assets/padrao_hero_desktop.mp4`
+- `assets/padrao_hero_mobile.mp4`
 
-Os MP4 estão no pacote V0.2 preparado pela OT. Até o upload, o HERO mostra a ilustração SVG de reserva.
+Os caminhos do `app.js` foram corrigidos para os nomes efetivos do upload. A reprodução real depende de habilitar a prévia no GitHub Pages e validar em navegador. A versão estática (`hero-poster.svg`) permanece como fallback.
 
 ## GitHub Pages — demonstração
 
