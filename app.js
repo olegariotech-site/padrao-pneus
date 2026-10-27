@@ -15,7 +15,7 @@ if(video&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&!navig
  const mobile=window.matchMedia('(max-width: 767px)').matches;
  video.poster='assets/hero-poster.svg';
  const source=document.createElement('source');
- source.src=mobile?'assets/hero-mobile.mp4':'assets/hero-desktop.mp4';
+ source.src=mobile?'assets/padrao_hero_mobile.mp4':'assets/padrao_hero_desktop.mp4';
  source.type='video/mp4';
  video.appendChild(source);
  video.addEventListener('playing',()=>video.classList.add('video-ready'),{once:true});
