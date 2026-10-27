@@ -196,3 +196,73 @@
 @media(prefers-reduced-motion:reduce) {
   .whatsapp-float,.whatsapp-float-label { transition:none; transform:none; }
 }
+
+
+
+/* OT | Social V0.2.4 — marcas Instagram/Facebook (arquivos SVG locais) */
+.nav-social{display:flex;align-items:center;gap:9px;margin-left:4px}
+.social-icon-btn{
+  width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 38px;border-radius:11px;border:1px solid rgba(255,255,255,.2);
+  transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+  filter:saturate(.86);
+}
+.social-icon-btn img,.social-badge img{display:block;max-width:100%;object-fit:contain}
+.social-instagram.social-icon-btn,.social-instagram .social-badge{
+  background:linear-gradient(135deg,#833ab4 3%,#c13584 32%,#e1306c 57%,#fd1d1d 75%,#fcaf45 100%);
+}
+.social-facebook.social-icon-btn,.social-facebook .social-badge{background:#0866ff}
+.social-icon-btn:hover,.social-icon-btn:focus-visible{
+  transform:translateY(-3px) scale(1.08);filter:saturate(1.1);
+  box-shadow:0 8px 24px rgba(0,0,0,.42),0 0 0 3px rgba(255,255,255,.09);
+}
+.social-icon-btn:focus-visible,.social-link:focus-visible{
+  outline:2px solid #fff;outline-offset:3px;
+}
+.footer-social{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:0 0 30px;border-bottom:1px solid var(--line);margin-top:-15px;margin-bottom:22px;
+}
+.footer-social-caption{font-size:10px;font-weight:800;letter-spacing:.18em;color:#aeb6c1}
+.footer-social-links{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.social-link{
+  display:inline-flex;gap:12px;align-items:center;
+  min-height:48px;min-width:155px;padding:7px 11px 7px 8px;
+  border:1px solid rgba(255,255,255,.16);border-radius:12px;
+  background:#151b22;color:#f1f3f5;font-size:12px;font-weight:750;
+  transition:background .24s,border-color .24s,transform .24s,box-shadow .24s;
+}
+.social-badge{
+  width:34px;height:34px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;
+}
+.social-arrow{margin-left:auto;font-size:15px;color:#a8b4c0;transition:transform .22s}
+.social-link:hover,.social-link:focus-visible{
+  background:#202932;transform:translateY(-3px);
+  border-color:rgba(255,255,255,.34);box-shadow:0 12px 24px #0006;
+}
+.social-link:hover .social-arrow,.social-link:focus-visible .social-arrow{transform:translate(2px,-2px)}
+@media (min-width:851px) and (max-width:1199px){
+  .navigation .nav-social{display:none}
+}
+@media (max-width:850px){
+  .navigation .nav-social{
+    display:flex;justify-content:flex-start;margin:18px 0 0;gap:12px;
+  }
+  .navigation .nav-social .social-icon-btn{
+    display:inline-flex;width:44px;height:44px;flex:0 0 44px;padding:0;border:1px solid rgba(255,255,255,.3);
+  }
+  .footer-social{margin-top:0;align-items:flex-start;flex-direction:column}
+}
+@media(max-width:620px){
+  .footer-social-links{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .social-link{min-width:0;min-height:51px;gap:9px}
+  .social-link .social-arrow{font-size:13px}
+}
+@media(max-width:355px){
+  .footer-social-links{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ .social-icon-btn,.social-link,.social-arrow{transition:none}
+ .social-icon-btn:hover,.social-icon-btn:focus-visible,.social-link:hover,.social-link:focus-visible{transform:none}
+}
