@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 220" role="img" aria-labelledby="brandTitle brandDesc">
+<title id="brandTitle">Padrão Pneus</title><desc id="brandDesc">Assinatura da Padrão Pneus com monograma P geométrico, sulcos inspirados na banda de rodagem e letras inclinadas.</desc>
+
+  <g transform="translate(6 3)">
+    <path d="M33 75 C13 93 3 120 16 154 L28 164 C20 132 33 101 58 74 Z" fill="#F3F5F7"/>
+    <path d="M33 83 L49 76 M26 97 L41 91 M21 113 L35 106 M20 129 L33 121 M22 145 L33 137" stroke="#101D2D" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M44 24 H151 C187 24 207 42 201 73 C195 106 173 118 141 118 H99 L115 91 H141 C158 91 171 84 174 70 C177 59 170 51 151 51 H73 Z" fill="#F3F5F7"/>
+    <path d="M81 67 H150 C166 67 170 73 165 84 C160 96 149 101 134 101 H113 L77 164 H35 L70 101 Z" fill="#A72C3A"/>
+    <path d="M81 67 H151 C164 67 169 74 164 83 C159 93 151 99 139 99 H113" stroke="#CB3B4C" stroke-width="2.5" fill="none" opacity=".38"/>
+  </g>
+<g transform="skewX(-6)">
+ <text x="250" y="115" font-family="'Arial Narrow','Arial Black',Arial,sans-serif" font-style="italic" font-size="104" font-weight="900" letter-spacing="1.5" textLength="655" lengthAdjust="spacingAndGlyphs" fill="#F3F5F7">PADRÃO</text>
+ <path d="M291 173 H426 M777 173 H901" stroke="#F3F5F7" stroke-width="3.2" stroke-linecap="square" opacity=".85"/>
+ <text x="445" y="192" font-family="'Arial Narrow','Arial Black',Arial,sans-serif" font-style="italic" font-size="80" font-weight="900" letter-spacing="4" textLength="315" lengthAdjust="spacingAndGlyphs" fill="#A72C3A">PNEUS</text>
+</g></svg>
