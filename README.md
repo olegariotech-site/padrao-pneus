@@ -104,6 +104,17 @@ Não modificar a main nem configurar o domínio do cliente nesta fase.
 - **Privacidade:** não publicar como material promocional definitivo antes de confirmar autorização dos profissionais retratados. As imagens já estão acessíveis no repositório público da prévia, portanto é importante verificar as permissões.
 - **Otimização:** para a versão oficial, confirmar licença/autorizações, dimensões e qualidade das imagens em navegadores reais; avaliar mover originais para um arquivo separado se necessário, preservando links publicados.
 
+## Galeria de produtos e estoque — V0.7 (prévia)
+
+- Nova coleção incorporada **dentro da seção Nossa Estrutura**, evitando uma sequência excessiva de galerias independentes.
+- **Recebimento confirmado em 27/10/2026:** 8 fotografias WebP otimizadas e 8 JPGs de reserva do espaço/estoque, enviadas pela OT na pasta `assets/` (raiz), e não em `assets/photos/produtos/`. Manter caminhos reais, sem duplicar ou mover os arquivos originais.
+- **Destaques:** `04-estoque-pneus-e-produtos.webp` e `06-estoque-de-pneus.webp`. Complementos visíveis: `02-corredor-de-produtos.webp` e `01-lubrificantes-e-fluidos.webp`. Mais quatro fotografias em `<details>` acessível, acionado por “Ver mais fotos da estrutura”.
+- Cada módulo usa `<picture>` com WebP e JPG fallback, `loading="lazy"`, legenda e `alt` descritivo.
+- **CTA:** “Consultar produtos no WhatsApp”, abrindo conversa no número `+55 (19) 97421-5389` com mensagem pré-definida, sem envio automático.
+- **Comercial:** as imagens não são catálogo de preço nem prova de disponibilidade atual. Confirmar estoque, opções e serviços diretamente com a equipe.
+- **Identidade:** azul profundo, branco e único vermelho `#A72C3A`, Barlow Condensed/Manrope, linhas discretas. CSS no `design-system.css`, preservando o HERO e galeria “Nossa equipe em ação”.
+- **Antes da publicação oficial:** validar que as fotos representam o espaço atual, que existe autorização de uso das imagens e que o mobile/desktop foram homologados. Sem merge na `main`.
+
 ## Pendências antes do uso oficial
 
 1. Validar a identidade própria da Padrão Pneus com Rodolfo.
