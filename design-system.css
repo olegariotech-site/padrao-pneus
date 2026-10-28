@@ -1086,3 +1086,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 @media(prefers-reduced-motion:reduce){
   .site-footer .footer-credit a{transition:none}
 }
+
+/* OT CARD CLEANUP V0.8.5 — sem números, com títulos alinhados.
+   Mantém filetes institucionais e CTAs existentes. */
+.services .service-card h3{margin-top:8px}
+.advantages-grid h3{margin-top:7px}
+.work-gallery-card figcaption,.products-tile figcaption{
+  align-items:flex-end;
+  gap:0;
+}
+@media(max-width:620px){
+  .services .service-card h3{margin-top:5px}
+  .advantages-grid h3{margin-top:7px}
+}
