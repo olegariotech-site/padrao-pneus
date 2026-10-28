@@ -1122,3 +1122,117 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .hero-video-retry:hover,.hero-video-retry:focus-visible{
   border-color:#FFF;background:#254A73;
 }
+
+/* OT SERVICES PREMIUM V0.9 — seis serviços confirmados, sem numeração.
+   CTAs individuais para o WhatsApp comercial e composição 3/2/1 responsiva. */
+.services .service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  border-top:1px solid var(--pp-line-light);
+}
+.services .service-card{
+  min-width:0;
+  min-height:268px;
+  border-bottom:1px solid var(--pp-line-light);
+  border-left:1px solid var(--pp-line-light);
+  padding:clamp(24px,2.6vw,38px);
+}
+.services .service-card:nth-child(3n+1){
+  border-left:3px solid var(--pp-red);
+}
+.services .service-card h3{
+  font-size:clamp(33px,3vw,45px);
+  line-height:1.08;
+  margin:5px 0 13px;
+}
+.services .service-card p{
+  margin:0 0 17px;
+  line-height:1.68;
+}
+.services .service-card a{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:fit-content;
+  max-width:100%;
+  min-height:44px;
+  line-height:1.45;
+  white-space:normal;
+  text-decoration:none;
+}
+.services .service-card a span{
+  margin-left:0;
+  font-size:17px;
+  transition:transform .2s ease;
+}
+@media(hover:hover) and (pointer:fine){
+  .services .service-card a:hover span{transform:translate(3px,-2px)}
+}
+.services .service-card a:focus-visible{
+  outline:2px solid var(--pp-red);
+  outline-offset:3px;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.services .services-help{
+  margin-top:clamp(22px,3vw,36px);
+  padding:clamp(23px,3vw,36px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:clamp(18px,3.5vw,52px);
+  background:#15283D;
+  border-left:4px solid var(--pp-red);
+  color:var(--pp-white);
+}
+.services .services-help strong{
+  display:block;
+  font:700 clamp(24px,2.4vw,34px)/1.12 var(--pp-font-display);
+  text-transform:uppercase;
+}
+.services .services-help p{
+  max-width:540px;
+  margin:9px 0 0;
+  color:#D9E5F0;
+  font-size:13px;
+  line-height:1.65;
+}
+.services .services-help .button{
+  flex-shrink:0;
+  display:inline-flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  max-width:100%;
+  text-align:center;
+  white-space:normal;
+}
+@media(min-width:681px) and (max-width:980px){
+  .services .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .services .service-card:nth-child(3n+1){border-left:1px solid var(--pp-line-light)}
+  .services .service-card:nth-child(2n+1){border-left:3px solid var(--pp-red)}
+  .services .services-help{flex-direction:column;align-items:stretch}
+  .services .services-help .button{width:100%}
+}
+@media(max-width:680px){
+  .services .service-grid{grid-template-columns:1fr}
+  .services .service-card,
+  .services .service-card:nth-child(3n+1){
+    min-height:0;
+    padding:24px 18px 25px;
+    border-left:0;
+    border-top:0;
+    border-bottom:1px solid var(--pp-line-light);
+  }
+  .services .service-card:first-child{
+    border-left:0;
+    border-top:3px solid var(--pp-red);
+  }
+  .services .service-card h3{font-size:clamp(35px,9vw,43px);margin:3px 0 10px}
+  .services .services-help{flex-direction:column;align-items:stretch;gap:22px}
+  .services .services-help .button{width:100%;padding:15px 16px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .services .service-card a span{transition:none;transform:none!important}
+}
