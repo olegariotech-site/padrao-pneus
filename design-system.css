@@ -1103,26 +1103,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 /* Safari iOS — controle persistente fora do fluxo: bloqueio/pausa sem deslocar o CTA. */
 .hero-video-retry[hidden]{display:none!important}
 .hero-video-retry{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  display:inline-grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  min-width:44px;
   min-height:44px;
-  padding:10px 16px;
+  padding:0;
   margin:0;
-  background:rgba(16,29,45,.86);
-  border:1px solid rgba(243,245,247,.65);
-  border-radius:2px;
+  border:1px solid rgba(243,245,247,.30);
+  border-radius:50%;
+  background:rgba(11,22,35,.56);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
   color:#F3F5F7;
-  font:800 12px/1.35 var(--pp-font-body);
-  letter-spacing:.03em;
+  font:800 16px/1 var(--pp-font-body);
   cursor:pointer;
   position:absolute;
   top:108px;
   right:clamp(18px,4vw,65px);
   z-index:5;
+  transition:background-color .2s ease,border-color .2s ease;
 }
 .hero-video-retry:hover,.hero-video-retry:focus-visible{
-  border-color:#FFF;background:#254A73;
+  border-color:rgba(255,255,255,.75);
+  background:rgba(37,74,115,.85);
+}
+.hero-video-retry:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-video-retry{transition:none}
 }
 .hero .hero-art{animation:none}
 .visually-hidden{
