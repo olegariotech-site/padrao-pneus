@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Padrão Pneus — Capa de compartilhamento</title>
+<desc id="desc">Capa premium da demonstração Padrão Pneus, com imagem real de serviço, identidade azul, branca e vermelha. Projeto Olegario Tech.</desc>
+<defs>
+<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#06121F" stop-opacity="1"/>
+  <stop offset=".42" stop-color="#071725" stop-opacity=".96"/>
+  <stop offset=".65" stop-color="#0B1B2A" stop-opacity=".64"/>
+  <stop offset="1" stop-color="#07121E" stop-opacity=".35"/>
+</linearGradient>
+<linearGradient id="bottom" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#071421" stop-opacity="0"/>
+ <stop offset="1" stop-color="#071421" stop-opacity=".9"/>
+</linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+ <stop offset="0" stop-color="#A72C3A"/><stop offset="1" stop-color="#D44854"/>
+</linearGradient>
+</defs>
+<rect width="1200" height="630" fill="#101D2D"/>
+<!-- Foto real de serviço da Padrão Pneus: ver documentação de autorização antes de uso oficial. -->
+<image x="450" y="-1" width="760" height="632" xlink:href="../01-alinhamento-equipamento.jpg" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1200" height="630" fill="url(#fade)"/>
+<rect width="1200" height="630" fill="url(#bottom)"/>
+<path d="M967 -60 L1136 -60 L869 690 L718 690 Z" fill="#254A73" opacity=".14"/>
+<path d="M1136 -30 L1170 -30 L930 675 L893 675 Z" fill="#A72C3A" opacity=".48"/>
+<rect x="66" y="76" width="5" height="44" fill="url(#red)"/>
+<text x="89" y="103" fill="#DCE8F3" font-family="sans-serif" font-size="16" font-weight="700" letter-spacing="4">PADRÃO PNEUS · VALINHOS</text>
+<!-- Logotipo existente da marca; preservar o mesmo ativo usado no cabeçalho. -->
+<image x="55" y="124" width="640" height="155" xlink:href="../branding/padrao-pneus-horizontal-dark.svg" preserveAspectRatio="xMinYMid meet"/>
+<rect x="66" y="305" width="83" height="5" fill="#A72C3A"/>
+<text x="65" y="383" fill="#F3F5F7" font-family="DejaVu Sans,sans-serif" font-weight="bold" font-size="53" letter-spacing="-2">MAIS QUE PNEUS.</text>
+<text x="65" y="457" fill="#F3F5F7" font-family="DejaVu Sans,sans-serif" font-weight="bold" font-size="49" letter-spacing="-2">CUIDADO DE VERDADE.</text>
+<text x="66" y="520" fill="#D1DEEA" font-family="DejaVu Sans,sans-serif" font-size="20">Pneus · Alinhamento · Balanceamento</text>
+<path d="M65 555 H1130" stroke="#B7C8DB" stroke-opacity=".27" stroke-width="2"/>
+<text x="65" y="596" fill="#D6E1EC" font-family="DejaVu Sans,sans-serif" font-size="15" letter-spacing="1.2">CONCEITO VISUAL · DEMONSTRAÇÃO</text>
+<text x="1130" y="596" text-anchor="end" fill="#D6E1EC" font-family="DejaVu Sans,sans-serif" font-size="15">OLEGARIO TECH</text>
+</svg>
