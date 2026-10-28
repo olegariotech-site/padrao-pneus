@@ -59,7 +59,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-background" aria-hidden="true">
         <!-- Filme conceitual gerado com IA: versão otimizada, muda, com fallback estático para acessibilidade e economia de dados. -->
-        <video class="hero-video" id="hero-video" autoplay muted playsinline webkit-playsinline loop preload="metadata" poster="assets/hero-poster.svg" aria-hidden="true"><source src="assets/padrao_hero_mobile.mp4" media="(max-width: 767px)" type="video/mp4"><source src="assets/padrao_hero_desktop.mp4" type="video/mp4"></video>
+        <video class="hero-video" id="hero-video" data-mobile-src="assets/padrao_hero_mobile.mp4" data-desktop-src="assets/padrao_hero_desktop.mp4" autoplay muted playsinline webkit-playsinline loop preload="none" poster="assets/hero-poster.svg" aria-hidden="true"></video>
         <div class="hero-art" id="hero-art"></div>
         <div class="hero-overlay"></div>
       </div>
@@ -68,12 +68,15 @@
           <div class="eyebrow"><span class="eyebrow-line"></span> PNEUS · ALINHAMENTO · BALANCEAMENTO</div>
           <h1 id="hero-title"><span class="hero-line">MAIS QUE PNEUS.</span><span class="hero-line hero-line-accent">CUIDADO DE VERDADE.</span></h1>
           <p>Em Valinhos, um atendimento próximo para cuidar dos pneus, alinhamento e balanceamento do seu carro. Informação clara para você seguir com confiança.</p>
-          <button class="hero-video-retry" id="hero-video-retry" type="button" hidden aria-label="Reproduzir vídeo de apresentação">▶ Reproduzir vídeo</button>
+          
           <div class="actions"><a class="button button-primary" href="#orcamento">Pedir meu orçamento <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#estrutura">Conhecer a loja <span aria-hidden="true">↓</span></a></div>
           <div class="hero-proof"><span class="proof-dot"></span><span>Padrão Pneus · Valinhos/SP</span><span class="slash">/</span><span>Orçamento pelo WhatsApp</span></div>
         </div>
       </div>
       <div class="hero-footer"><span>PADRÃO PNEUS</span><span class="hero-rule"></span><span>CUIDADO PARA SEGUIR</span><a href="#servicos" aria-label="Rolar para serviços">↓</a></div>
+      <button class="hero-video-retry" id="hero-video-retry" type="button" aria-controls="hero-video" aria-label="Reproduzir vídeo de apresentação" title="Reproduzir vídeo">▶</button>
+      <span class="visually-hidden" id="hero-video-status" role="status"></span>
+      <output class="hero-video-debug" id="hero-video-debug" hidden aria-live="polite"></output>
     </section>
 
     <section class="services section" id="servicos" aria-labelledby="services-title">
