@@ -35,15 +35,16 @@ if(video){
   const control=state=>{
     hero.dataset.videoState=state;
     if(!retry)return;
-    retry.hidden=!enabled()||state==='error';
-    retry.textContent=state==='playing'?'Ⅱ Pausar vídeo':'▶ Reproduzir vídeo';
+    retry.hidden=!enabled();
+    retry.textContent=state==='playing'?'Ⅱ':'▶';
+    retry.title=state==='playing'?'Pausar vídeo':'Reproduzir vídeo';
     retry.setAttribute('aria-label',state==='playing'?'Pausar vídeo de apresentação':'Reproduzir vídeo de apresentação');
   };
   const fail=()=>{
     failed=true;
     video.classList.remove('video-ready');
     control('error');
-    if(status)status.textContent='Vídeo indisponível. A apresentação estática foi mantida.';
+    if(status)status.textContent='Vídeo indisponível. A imagem de apresentação continua visível. Tente reproduzir novamente.';
   };
   const attempt=()=>{
     if(!enabled()||userPaused||failed||!inView||document.hidden||pendingPlay)return;
@@ -83,6 +84,13 @@ if(video){
     }else{
       userPaused=false;
       video.muted=true;
+      if(failed){
+        // A falha de rede pode ser transitória. Nova tentativa só após toque.
+        failed=false;
+        generation++;
+        pendingPlay=null;
+        video.load();
+      }
       // Keep play() directly in the click handler: iOS requires the user gesture.
       attempt();
     }
