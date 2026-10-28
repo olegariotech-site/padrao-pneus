@@ -1099,3 +1099,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .services .service-card h3{margin-top:5px}
   .advantages-grid h3{margin-top:7px}
 }
+
+/* Safari iOS V0.8.6 — controle discreto para autoplay bloqueado (Low Power Mode). */
+.hero-video-retry[hidden]{display:none!important}
+.hero-video-retry{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px 16px;
+  margin:0 0 16px;
+  background:rgba(16,29,45,.86);
+  border:1px solid rgba(243,245,247,.65);
+  border-radius:2px;
+  color:#F3F5F7;
+  font:800 12px/1.35 var(--pp-font-body);
+  letter-spacing:.03em;
+  cursor:pointer;
+  position:relative;
+  z-index:3;
+}
+.hero-video-retry:hover,.hero-video-retry:focus-visible{
+  border-color:#FFF;background:#254A73;
+}
