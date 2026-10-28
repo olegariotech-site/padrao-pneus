@@ -1,0 +1,42 @@
+name: Import approved conceptual facade
+on:
+  push:
+    branches: [desenvolvimento-v1]
+    paths: [.github/workflows/import-fachada-conceitual.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: desenvolvimento-v1
+          persist-credentials: true
+      - name: Download conceptual image and optimize
+        env:
+          SOURCE_URL: https://d2ol7oe51mr4n9.cloudfront.net/user_3HH3YWPOFvwARsTkKu1GHEUCBml/0d04b824-4cf7-4f1b-9ab8-4a4e50db0501.png
+        run: |
+          curl --fail --location --retry 3 --max-time 90 "$SOURCE_URL" -o /tmp/fachada.png
+          python -m pip install --disable-pip-version-check pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          image=Image.open('/tmp/fachada.png').convert('RGB')
+          if image.width<1000 or image.height<500: raise RuntimeError('Invalid input dimensions')
+          dest=Path('assets/fachada/padrao-pneus-fachada-conceitual.webp')
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          image.thumbnail((1000,600),Image.Resampling.LANCZOS)
+          image.save(dest,format='WEBP',quality=45,method=6)
+          print('Conceptual image',image.size,dest.stat().st_size)
+          PY
+      - name: Commit asset to preview only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/fachada/padrao-pneus-fachada-conceitual.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(fachada): adicionar arte conceitual da fachada com identificação"
+            git push origin HEAD:desenvolvimento-v1
+          fi
