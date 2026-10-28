@@ -1225,6 +1225,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     border-top:0;
     border-bottom:1px solid var(--pp-line-light);
   }
+  .services .service-card:not(:first-child){border-top:0}
   .services .service-card:first-child{
     border-left:0;
     border-top:3px solid var(--pp-red);
