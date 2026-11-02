@@ -161,6 +161,33 @@ if(video){
   connection?.addEventListener?.('change',selectSource);
   selectSource();
 }
+// OT Design Hub / Curadoria V1: orientar o orçamento com base no serviço escolhido.
+// Não envia dados, não cria rastreamento e preserva o atalho direto de WhatsApp.
+const quoteServiceSelect=document.querySelector('#service');
+const quoteGuidance=document.querySelector('#quote-guidance');
+const quoteDetailsInput=document.querySelector('#details');
+const serviceAdvice={
+  'Pneus':['Para pneus, a medida e a quantidade ajudam a equipe a entender seu pedido. Se não souber, descreva a necessidade.','Ex.: 195/55 R16, 4 unidades'],
+  'Alinhamento':['Se desejar, conte se o carro puxa para um lado ou se notou desgaste irregular. A avaliação precisa ser feita pela equipe.','Ex.: carro puxando para a direita'],
+  'Balanceamento':['Se desejar, descreva quando percebe vibração e a velocidade aproximada. A equipe orientará a avaliação.','Ex.: vibração no volante em estrada'],
+  'Freios':['Se desejar, relate ruídos ou mudanças percebidas na frenagem. Não substitui avaliação profissional.','Ex.: ruído ao frear; modelo e ano'],
+  'Suspensão':['Se desejar, descreva ruídos, desconforto ou situações em que aparecem. A equipe poderá orientar a avaliação.','Ex.: ruído ao passar em lombadas'],
+  'Troca de óleo e filtros':['Se souber, informe modelo, ano e motorização; a equipe confirma a especificação adequada.','Ex.: Onix 2021 1.0; última troca'],
+  'Outro serviço (consultar)':['Descreva o que precisa ou o que percebeu no veículo para a equipe orientar o próximo passo.','Ex.: descrição da necessidade']
+};
+const updateQuoteGuidance=()=>{
+  const advice=serviceAdvice[quoteServiceSelect?.value];
+  if(quoteGuidance)quoteGuidance.textContent=advice?advice[0]:'Selecione um serviço para ver quais informações ajudam a preparar seu pedido.';
+  if(quoteDetailsInput)quoteDetailsInput.placeholder=advice?advice[1]:'Ex.: 195/55 R16, 4 unidades';
+};
+quoteServiceSelect?.addEventListener('change',updateQuoteGuidance);
+document.querySelectorAll('[data-quote-service]').forEach(link=>link.addEventListener('click',()=>{
+  const target=link.getAttribute('data-quote-service');
+  if(!quoteServiceSelect||!Array.from(quoteServiceSelect.options).some(opt=>opt.value===target))return;
+  quoteServiceSelect.value=target;
+  updateQuoteGuidance();
+}));
+updateQuoteGuidance();
 const quoteForm=document.querySelector('#quote-form');
 quoteForm?.addEventListener('submit',event=>{
  event.preventDefault();if(!quoteForm.reportValidity())return;
