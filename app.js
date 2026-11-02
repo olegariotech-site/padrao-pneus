@@ -16,148 +16,103 @@ menuButton?.addEventListener('click',()=>{
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu(true)});
-// Vídeo de fundo: autoplay discreto com fallback e acionamento manual no Safari iOS.
-// Safari pode impedir autoplay em economia de energia: manter poster e oferecer play.
+// HERO cinematográfico: reprodução silenciosa contínua enquanto visível, sem controles.
 const video=document.querySelector('#hero-video');
-const retry=document.querySelector('#hero-video-retry');
 const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
 const mobileVideo=window.matchMedia('(max-width: 767px)');
 const connection=navigator.connection;
 if(video){
   const hero=video.closest('.hero');
   const status=document.querySelector('#hero-video-status');
-  // Respeitar movimento reduzido e economia de dados no autoplay; permitir play voluntário.
-  let manualRequested=false;
-  const enabled=()=>manualRequested||(!motionPreference.matches&&!connection?.saveData);
-  let userPaused=false;
+  const diagnostic=document.querySelector('#hero-video-debug');
+  const debugEnabled=new URLSearchParams(window.location.search).has('video-debug');
   let inView=true;
   let failed=false;
   let generation=0;
   let pendingPlay=null;
-  let lastError='';
-  const diagnostic=document.querySelector('#hero-video-debug');
-  const debugEnabled=new URLSearchParams(window.location.search).has('video-debug');
+  const enabled=()=>!motionPreference.matches&&!connection?.saveData;
   const updateDebug=(state)=>{
+    hero.dataset.videoState=state;
     if(!diagnostic||!debugEnabled)return;
     diagnostic.hidden=false;
-    diagnostic.textContent='Safari vídeo | '+state+' | '+(mobileVideo.matches?'mobile':'desktop')+' | ready='+video.readyState+' network='+video.networkState+' mediaError='+(video.error?.code||0)+' | playError='+(lastError||'-')+' | reducedMotion='+motionPreference.matches+' | saveData='+Boolean(connection?.saveData)+' | hidden='+document.hidden;
+    diagnostic.textContent='HERO | '+state+' | '+(mobileVideo.matches?'mobile':'desktop')+' | ready='+video.readyState+' error='+(video.error?.code||0);
   };
-  const control=state=>{
-    hero.dataset.videoState=state;
-    if(!retry)return;
-    retry.hidden=false;
-    retry.textContent=state==='playing'?'Ⅱ':'▶';
-    retry.title=state==='playing'?'Pausar vídeo':'Reproduzir vídeo';
-    retry.setAttribute('aria-label',state==='playing'?'Pausar vídeo de apresentação':'Reproduzir vídeo de apresentação');
-    updateDebug(state);
-  };
-  const fail=()=>{
-    failed=true;
-    lastError='MediaError '+(video.error?.code||'não informado');
+  const fallback=()=>{
+    video.classList.add('fallback');
     video.classList.remove('video-ready');
-    control('error');
-    if(status)status.textContent='Vídeo indisponível. A imagem de apresentação continua visível. Tente reproduzir novamente.';
+    updateDebug('static');
+    if(status)status.textContent='Apresentação visual estática disponível.';
   };
   const attempt=()=>{
-    if(!enabled()||userPaused||failed||!inView||document.hidden||pendingPlay)return;
-    const currentGeneration=generation;
-    const rejected=error=>{
-      // load()/pause() can interrupt an older attempt during a source or visibility change.
-      if(currentGeneration!==generation||error?.name==='AbortError')return;
-      lastError=error?.name||'PlayError';
-      if(error.name==='NotSupportedError'){fail();return;}
-      control('blocked');
-    };
+    if(!enabled()||failed||!inView||document.hidden||pendingPlay)return;
+    const current=generation;
     try{
-      const result=video.play();
-      if(result&&typeof result.then==='function'){
-        pendingPlay=result;
-        result.catch(rejected).finally(()=>{if(pendingPlay===result)pendingPlay=null;});
+      const playPromise=video.play();
+      if(playPromise&&typeof playPromise.then==='function'){
+        pendingPlay=playPromise;
+        playPromise.catch(error=>{
+          if(current!==generation||error?.name==='AbortError')return;
+          // O Safari pode bloquear autoplay: preservar a arte sem exibir botão de play.
+          fallback();
+        }).finally(()=>{if(pendingPlay===playPromise)pendingPlay=null;});
       }
-    }catch(error){rejected(error);}
+    }catch{fallback();}
   };
-  video.muted=true;
-  video.defaultMuted=true;
-  video.setAttribute('muted','');
-  video.setAttribute('playsinline','');
-  video.setAttribute('webkit-playsinline','');
-  video.addEventListener('playing',()=>{
-    if(!enabled()||userPaused||!inView||document.hidden){video.pause();return;}
-    lastError='';
-    video.classList.add('video-ready');
-    control('playing');
-  });
-  video.addEventListener('pause',()=>{if(!failed)control('paused')});
-  video.addEventListener('error',fail);
-  video.addEventListener('loadeddata',attempt);
-  retry?.addEventListener('click',()=>{
-    if(!video.paused){
-      userPaused=true;
-      video.pause();
-      control('paused');
-    }else{
-      userPaused=false;
-      manualRequested=true;
-      video.muted=true;
-      // O gesto do usuário deve iniciar carregamento e play de forma síncrona.
-      if(!video.getAttribute('src')){ selectSource(); return; }
-      if(pendingPlay){ generation++; pendingPlay=null; }
-      if(failed){
-        // A falha de rede pode ser transitória. Nova tentativa só após toque.
-        failed=false;
-        generation++;
-        pendingPlay=null;
-        video.load();
-      }
-      // Keep play() directly in the click handler: iOS requires the user gesture.
-      attempt();
-    }
-  });
   const selectSource=()=>{
     generation++;
     pendingPlay=null;
     failed=false;
-    if(status)status.textContent='';
     if(!enabled()){
       video.pause();
       video.removeAttribute('autoplay');
       video.removeAttribute('src');
       video.preload='none';
-      video.classList.remove('video-ready');
       video.load();
-      control('static');
+      fallback();
       return;
     }
-    const source=mobileVideo.matches?video.dataset.mobileSrc:video.dataset.desktopSrc;
-    if(video.getAttribute('src')!==source){
+    video.muted=true;
+    video.defaultMuted=true;
+    video.setAttribute('muted','');
+    video.setAttribute('playsinline','');
+    video.setAttribute('webkit-playsinline','');
+    video.autoplay=true;
+    video.loop=true;
+    video.setAttribute('autoplay','');
+    const chosen=mobileVideo.matches?video.dataset.mobileSrc:video.dataset.desktopSrc;
+    if(video.getAttribute('src')!==chosen){
       video.pause();
+      video.classList.add('fallback');
       video.classList.remove('video-ready');
+      video.src=chosen;
       video.preload='metadata';
-      video.src=source;
       video.load();
     }
-    // Explicit play() handles autoplay and allows a persistent user pause across rotation.
-    video.autoplay=false;
-    control(video.paused?'paused':'playing');
     attempt();
   };
-  const observer=new IntersectionObserver(entries=>{
-    if(!entries[0])return;
-    inView=entries[0].isIntersecting;
-    if(inView)attempt();
-    else video.pause();
-  },{threshold:0.05});
-  observer.observe(hero);
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden)video.pause();
-    else attempt();
+  video.addEventListener('playing',()=>{
+    if(!enabled()||!inView||document.hidden){video.pause();return;}
+    video.classList.remove('fallback');
+    video.classList.add('video-ready');
+    if(status)status.textContent='';
+    updateDebug('playing');
   });
-  video.addEventListener('stalled',()=>updateDebug('stalled'));
-  video.addEventListener('waiting',()=>updateDebug('waiting'));
-  video.addEventListener('canplay',()=>updateDebug('canplay'));
-  // React to rotation and accessibility changes without relying on <source media> reselection.
-  motionPreference.addEventListener('change',selectSource);
-  mobileVideo.addEventListener('change',selectSource);
+  video.addEventListener('error',()=>{failed=true;fallback();});
+  video.addEventListener('loadeddata',attempt);
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      inView=Boolean(entries[0]?.isIntersecting);
+      if(inView)attempt();else video.pause();
+    },{threshold:0.05});
+    observer.observe(hero);
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else attempt();});
+  const onChange=(query,callback)=>{
+    if(query.addEventListener)query.addEventListener('change',callback);
+    else query.addListener?.(callback);
+  };
+  onChange(motionPreference,selectSource);
+  onChange(mobileVideo,selectSource);
   connection?.addEventListener?.('change',selectSource);
   selectSource();
 }
@@ -214,25 +169,47 @@ document.querySelector('#copy-quote')?.addEventListener('click',async event=>{
  catch{event.target.textContent='Selecione e copie a mensagem acima';}
 });
 
-// OT Design Hub — vídeo institucional somente após clique, com pausa ao fechar.
-const brandFilmDialog=document.querySelector('#brand-film-dialog');
-const brandFilmLink=document.querySelector('[data-brand-film-open]');
-const brandFilmPlayer=document.querySelector('#brand-film-player');
-const brandFilmClose=document.querySelector('#brand-film-close');
-if(brandFilmDialog && brandFilmLink && brandFilmPlayer && typeof brandFilmDialog.showModal==='function'){
-  brandFilmLink.addEventListener('click',event=>{
-    event.preventDefault();
-    brandFilmDialog.showModal();
-    const playResult=brandFilmPlayer.play();
-    playResult?.catch?.(()=>{/* Reprodução manual segue disponível pelos controles. */});
+// Vídeo institucional: loop silencioso na vitrine, carregamento somente perto da área visível.
+const brandLoopVideo=document.querySelector('#brand-film-loop-video');
+const brandLoopSource=brandLoopVideo?.querySelector('source[data-src]');
+if(brandLoopVideo && brandLoopSource){
+  let prepared=false;
+  let visible=false;
+  const allowed=()=>!motionPreference.matches&&!connection?.saveData;
+  const stop=()=>{
+    brandLoopVideo.pause();
+    brandLoopVideo.classList.remove('is-playing');
+  };
+  const resume=()=>{
+    if(!allowed()||document.hidden||!visible){stop();return;}
+    brandLoopVideo.muted=true;
+    brandLoopVideo.defaultMuted=true;
+    brandLoopVideo.setAttribute('muted','');
+    brandLoopVideo.setAttribute('playsinline','');
+    brandLoopVideo.setAttribute('webkit-playsinline','');
+    brandLoopVideo.loop=true;
+    if(!prepared){
+      brandLoopSource.src=brandLoopSource.dataset.src;
+      brandLoopVideo.load();
+      prepared=true;
+    }
+    const playing=brandLoopVideo.play();
+    playing?.catch?.(()=>{brandLoopVideo.classList.remove('is-playing');});
+  };
+  brandLoopVideo.addEventListener('playing',()=>{
+    if(!allowed()||!visible||document.hidden){stop();return;}
+    brandLoopVideo.classList.add('is-playing');
   });
-  brandFilmClose?.addEventListener('click',()=>brandFilmDialog.close());
-  brandFilmDialog.addEventListener('click',event=>{
-    if(event.target===brandFilmDialog)brandFilmDialog.close();
-  });
-  brandFilmDialog.addEventListener('close',()=>{
-    brandFilmPlayer.pause();
-    try{brandFilmPlayer.currentTime=0;}catch{/* Fonte ainda não carregada. */}
-    brandFilmLink.focus({preventScroll:true});
-  });
+  brandLoopVideo.addEventListener('error',()=>brandLoopVideo.classList.remove('is-playing'));
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      visible=Boolean(entries[0]?.isIntersecting);
+      if(visible)resume();else stop();
+    },{rootMargin:'180px 0px',threshold:0});
+    observer.observe(brandLoopVideo.closest('.brand-film-loop-frame'));
+  }else{visible=true;resume();}
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else resume();});
+  if(motionPreference.addEventListener)motionPreference.addEventListener('change',resume);
+  else motionPreference.addListener?.(resume);
+  connection?.addEventListener?.('change',resume);
 }
