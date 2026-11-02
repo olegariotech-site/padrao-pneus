@@ -1445,3 +1445,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
  .quote-form .quote-guidance{padding:11px 12px;font-size:12px}
  .services .service-card .service-quote-link{min-height:44px;align-items:center}
 }
+
+/* OT Design Hub — evitar colisão do WhatsApp flutuante com formulário de orçamento. */
+@media (max-width:850px){
+  body.ot-quote-form-visible .whatsapp-float{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+}

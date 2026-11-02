@@ -189,6 +189,14 @@ document.querySelectorAll('[data-quote-service]').forEach(link=>link.addEventLis
 }));
 updateQuoteGuidance();
 const quoteForm=document.querySelector('#quote-form');
+// OT Design Hub — em telas pequenas, o atalho fixo não deve cobrir o formulário.
+// O WhatsApp no próprio formulário continua disponível durante toda a operação.
+if(quoteForm && 'IntersectionObserver' in window){
+  new IntersectionObserver(entries=>{
+    document.body.classList.toggle('ot-quote-form-visible',Boolean(entries[0]?.isIntersecting));
+  },{threshold:0}).observe(quoteForm);
+}
+
 quoteForm?.addEventListener('submit',event=>{
  event.preventDefault();if(!quoteForm.reportValidity())return;
  const service=document.querySelector('#service').value.trim();
