@@ -133,26 +133,38 @@
       </div>
     </section>
 
-    <!-- OT Design Hub | Seção audiovisual institucional ilustrativa; manter o aviso de origem. -->
+    <!-- OT Design Hub — capa com registro fotográfico do acervo, vídeo ilustrativo em diálogo acessível. -->
     <section class="brand-film section" id="institucional" aria-labelledby="brand-film-title">
       <div class="container brand-film-layout">
         <div class="brand-film-copy">
           <span class="kicker">PADRÃO PNEUS · VALINHOS</span>
           <h2 id="brand-film-title">CUIDADO EM CADA DETALHE.<br><em>CONFIANÇA PARA SEGUIR.</em></h2>
-          <p>Pneus, alinhamento, balanceamento e serviços automotivos. Uma apresentação da nossa proposta de cuidado com o seu veículo, do primeiro contato ao orçamento.</p>
+          <p>Conheça uma apresentação audiovisual da nossa proposta de cuidado com o seu veículo. Para conhecer a oficina de verdade, explore também as fotos da loja e dos serviços.</p>
           <a class="button button-primary" href="#orcamento">Pedir orçamento <span aria-hidden="true">↗</span></a>
         </div>
         <figure class="brand-film-figure">
-          <video class="brand-film-video" controls playsinline preload="none"
-            poster="assets/fachada/padrao-pneus-fachada-conceitual.webp"
-            aria-label="Vídeo institucional ilustrativo da Padrão Pneus"
-            aria-describedby="brand-film-caption">
-            <source src="assets/videos/gemini_generated_video_a4915775.mp4" type="video/mp4">
-            Seu navegador não oferece reprodução deste vídeo. Acesse os serviços e peça um orçamento nesta página.
-          </video>
-          <figcaption id="brand-film-caption">Vídeo institucional ilustrativo, produzido digitalmente. As cenas não são filmagens da equipe ou das instalações reais da Padrão Pneus. Reprodução opcional.</figcaption>
+          <a class="brand-film-cover" data-brand-film-open href="assets/videos/gemini_generated_video_a4915775.mp4" aria-label="Assistir ao vídeo institucional ilustrativo da Padrão Pneus, duração de 10 segundos">
+            <picture>
+              <source srcset="assets/06-servico-roda.webp" type="image/webp">
+              <img class="brand-film-cover-img" src="assets/06-servico-roda.jpg" alt="Serviço de roda realizado em veículo, fotografia do acervo da Padrão Pneus" loading="lazy" decoding="async" width="1280" height="720">
+            </picture>
+            <span class="brand-film-cover-shade" aria-hidden="true"></span>
+            <span class="brand-film-cover-brand" aria-hidden="true"><img src="assets/branding/padrao-pneus-horizontal-dark.svg" width="950" height="220" alt=""></span>
+            <span class="brand-film-cover-play" aria-hidden="true">▶</span>
+            <span class="brand-film-cover-info"><strong>ASSISTA À NOSSA APRESENTAÇÃO</strong><small>FILME INSTITUCIONAL · 10 SEGUNDOS</small></span>
+            <span class="brand-film-cover-corner" aria-hidden="true">↗</span>
+          </a>
+          <figcaption class="brand-film-caption">Capa com fotografia do acervo da loja. O vídeo é ilustrativo, produzido digitalmente; não apresenta filmagens da equipe nem das instalações reais.</figcaption>
         </figure>
       </div>
+      <dialog class="brand-film-dialog" id="brand-film-dialog" aria-label="Apresentação institucional da Padrão Pneus" aria-describedby="brand-film-dialog-note">
+        <div class="brand-film-dialog-top"><span>PADRÃO PNEUS · FILME INSTITUCIONAL</span><button class="brand-film-close" id="brand-film-close" type="button" aria-label="Fechar vídeo">✕ <span>Fechar</span></button></div>
+        <video class="brand-film-player" id="brand-film-player" controls playsinline preload="none" aria-label="Vídeo institucional ilustrativo da Padrão Pneus">
+          <source src="assets/videos/gemini_generated_video_a4915775.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução do vídeo. Consulte os serviços nesta página.
+        </video>
+        <p id="brand-film-dialog-note">Produção institucional ilustrativa. Pessoas e ambientes do vídeo foram gerados digitalmente e não representam a equipe real nem as instalações da Padrão Pneus.</p>
+      </dialog>
     </section>
 
     <!-- Registros reais enviados pela OT: conferir autorização de imagem e uso comercial antes de oficializar. -->
@@ -290,6 +302,28 @@
     </section>
 
     <section class="advantages section" id="diferenciais" aria-labelledby="advantages-title"><div class="container"><span class="kicker">DO PRIMEIRO OLÁ AO ATENDIMENTO</span><h2 id="advantages-title">Gente que escuta.<br><em>Soluções que fazem sentido.</em></h2><div class="advantages-grid"><div><h3>Encontre</h3><p>Veja serviços, informações e localização em uma única página.</p></div><div><h3>Consulte</h3><p>Informe as medidas do pneu ou descreva o serviço que procura.</p></div><div><h3>Converse</h3><p>Leve sua necessidade diretamente para a equipe da Padrão Pneus.</p></div></div></div></section>
+
+    <!-- Vitrine social editorial com imagens do acervo; não simula posts ou avaliações. -->
+    <section class="social-showcase section" id="redes" aria-labelledby="social-showcase-title">
+      <div class="container">
+        <div class="social-showcase-intro">
+          <div><span class="kicker">ACOMPANHE A PADRÃO PNEUS</span><h2 id="social-showcase-title">NOSSA ROTINA.<br><em>MAIS PERTO DE VOCÊ.</em></h2></div>
+          <p>Imagens do nosso acervo mostram detalhes dos serviços e da estrutura. Para acompanhar as novidades, acesse os canais da Padrão Pneus.</p>
+        </div>
+        <div class="social-showcase-photos" aria-label="Registros fotográficos da Padrão Pneus">
+          <figure class="social-showcase-photo social-showcase-photo-wide"><picture><source srcset="assets/02-alinhamento-suv.webp" type="image/webp"><img src="assets/02-alinhamento-suv.jpg" alt="Veículo na área de alinhamento da Padrão Pneus" width="960" height="640" loading="lazy" decoding="async"></picture><figcaption>ALINHAMENTO</figcaption></figure>
+          <figure class="social-showcase-photo"><picture><source srcset="assets/06-servico-roda.webp" type="image/webp"><img src="assets/06-servico-roda.jpg" alt="Atendimento técnico em roda de automóvel" width="640" height="640" loading="lazy" decoding="async"></picture><figcaption>SERVIÇOS</figcaption></figure>
+          <figure class="social-showcase-photo"><picture><source srcset="assets/04-estoque-pneus-e-produtos.webp" type="image/webp"><img src="assets/04-estoque-pneus-e-produtos.jpg" alt="Pneus e produtos organizados no interior da loja" width="640" height="640" loading="lazy" decoding="async"></picture><figcaption>ESTRUTURA</figcaption></figure>
+        </div>
+        <div class="social-showcase-bottom">
+          <div class="social-showcase-copy"><strong>Continue acompanhando a loja.</strong><span>Fotografias do acervo da prévia, não publicações extraídas das redes sociais.</span></div>
+          <div class="social-showcase-actions">
+            <a class="social-showcase-link social-showcase-instagram" href="https://www.instagram.com/padraopneusautocenter/" target="_blank" rel="noopener noreferrer" aria-label="Acompanhar Padrão Pneus no Instagram (abre em nova aba)"><img src="assets/instagram.svg" width="22" height="22" alt=""><span>Ver Instagram</span><span aria-hidden="true">↗</span></a>
+            <a class="social-showcase-link social-showcase-facebook" href="https://www.facebook.com/padraopneustopservice/" target="_blank" rel="noopener noreferrer" aria-label="Acompanhar Padrão Pneus no Facebook (abre em nova aba)"><img src="assets/facebook.svg" width="18" height="22" alt=""><span>Ver Facebook</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="quote section" id="orcamento" aria-labelledby="quote-title"><div class="container quote-layout"><div><span class="kicker">FALE COM A PADRÃO PNEUS</span><h2 id="quote-title">Conte pra gente<br><em>o que você precisa.</em></h2><p>Selecione o serviço, informe seu veículo e gere uma mensagem pronta. Você prepara sua solicitação e pode enviá-la diretamente ao WhatsApp comercial da Padrão Pneus.</p></div><form class="quote-form" id="quote-form"><div class="quote-journey" aria-label="Etapas do pedido de orçamento"><span><b>1</b> Escolha o serviço</span><span><b>2</b> Informe seu veículo</span><span><b>3</b> Envie pelo WhatsApp</span></div><label for="service">Qual serviço você procura?</label><select id="service" name="service" required><option value="">Selecione um serviço</option><option>Pneus</option><option>Alinhamento</option><option>Balanceamento</option><option>Freios</option><option>Suspensão</option><option>Troca de óleo e filtros</option><option>Outro serviço (consultar)</option></select><p class="quote-guidance" id="quote-guidance" role="status">Selecione um serviço para ver quais informações ajudam a preparar seu pedido.</p><label for="vehicle">Qual é seu veículo?</label><input id="vehicle" name="vehicle" placeholder="Ex.: Onix 2021" maxlength="80" required><label for="details">Medida do pneu ou informação adicional (opcional)</label><input id="details" name="details" placeholder="Ex.: 195/55 R16, 4 unidades" maxlength="180"><button class="button button-primary" type="submit">Preparar meu pedido <span aria-hidden="true">↗</span></button><div id="quote-result" class="quote-result" aria-live="polite" hidden><p id="quote-message"></p><div class="quote-result-actions"><a id="send-quote" class="button whatsapp-send" href="https://wa.me/5519974215389?text=Ol%C3%A1%2C%20Padr%C3%A3o%20Pneus!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20da%20Padr%C3%A3o%20Pneus" target="_blank" rel="noopener noreferrer">Enviar pelo WhatsApp <span aria-hidden="true">↗</span></a><button type="button" id="copy-quote">Copiar mensagem</button></div></div></form></div></section>
 
