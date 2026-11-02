@@ -29,8 +29,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="design-system.css?v=ot-showcase-1">
-  <script defer src="app.js?v=ot-showcase-1"></script>
+  <link rel="stylesheet" href="design-system.css?v=ot-loop-1">
+  <script defer src="app.js?v=ot-loop-1"></script>
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -74,7 +74,6 @@
         </div>
       </div>
       <div class="hero-footer"><span>PADRÃO PNEUS</span><span class="hero-rule"></span><span>CUIDADO PARA SEGUIR</span><a href="#servicos" aria-label="Rolar para serviços">↓</a></div>
-      <button class="hero-video-retry" id="hero-video-retry" type="button" aria-controls="hero-video" aria-label="Reproduzir vídeo de apresentação" title="Reproduzir vídeo">▶</button>
       <span class="visually-hidden" id="hero-video-status" role="status"></span>
       <output class="hero-video-debug" id="hero-video-debug" hidden aria-live="polite"></output>
     </section>
@@ -133,7 +132,7 @@
       </div>
     </section>
 
-    <!-- OT Design Hub — capa com registro fotográfico do acervo, vídeo ilustrativo em diálogo acessível. -->
+    <!-- OT Design Hub — filme institucional ilustrativo em loop, silencioso, sem controles, com poster real. -->
     <section class="brand-film section" id="institucional" aria-labelledby="brand-film-title">
       <div class="container brand-film-layout">
         <div class="brand-film-copy">
@@ -142,29 +141,20 @@
           <p>Conheça uma apresentação audiovisual da nossa proposta de cuidado com o seu veículo. Para conhecer a oficina de verdade, explore também as fotos da loja e dos serviços.</p>
           <a class="button button-primary" href="#orcamento">Pedir orçamento <span aria-hidden="true">↗</span></a>
         </div>
-        <figure class="brand-film-figure">
-          <a class="brand-film-cover" data-brand-film-open href="assets/videos/gemini_generated_video_a4915775.mp4" aria-label="Assistir ao vídeo institucional ilustrativo da Padrão Pneus, duração de 10 segundos">
-            <picture>
-              <source srcset="assets/06-servico-roda.webp" type="image/webp">
-              <img class="brand-film-cover-img" src="assets/06-servico-roda.jpg" alt="Serviço de roda realizado em veículo, fotografia do acervo da Padrão Pneus" loading="lazy" decoding="async" width="1280" height="720">
-            </picture>
-            <span class="brand-film-cover-shade" aria-hidden="true"></span>
-            <span class="brand-film-cover-brand" aria-hidden="true"><img src="assets/branding/padrao-pneus-horizontal-dark.svg" width="950" height="220" alt=""></span>
-            <span class="brand-film-cover-play" aria-hidden="true">▶</span>
-            <span class="brand-film-cover-info"><strong>ASSISTA À NOSSA APRESENTAÇÃO</strong><small>FILME INSTITUCIONAL · 10 SEGUNDOS</small></span>
-            <span class="brand-film-cover-corner" aria-hidden="true">↗</span>
-          </a>
-          <figcaption class="brand-film-caption">Capa com fotografia do acervo da loja. O vídeo é ilustrativo, produzido digitalmente; não apresenta filmagens da equipe nem das instalações reais.</figcaption>
+        <figure class="brand-film-figure brand-film-loop">
+          <div class="brand-film-loop-frame">
+            <video class="brand-film-loop-video" id="brand-film-loop-video"
+              autoplay muted loop playsinline webkit-playsinline preload="none"
+              poster="assets/06-servico-roda.jpg" aria-hidden="true" tabindex="-1">
+              <source data-src="assets/videos/gemini_generated_video_a4915775.mp4" type="video/mp4">
+            </video>
+            <span class="brand-film-loop-shade" aria-hidden="true"></span>
+            <span class="brand-film-loop-logo" aria-hidden="true"><img src="assets/branding/padrao-pneus-horizontal-dark.svg" width="950" height="220" alt=""></span>
+            <span class="brand-film-loop-caption" aria-hidden="true">PADRÃO PNEUS <span>·</span> VALINHOS</span>
+          </div>
+          <figcaption class="brand-film-caption">Vídeo institucional ilustrativo, produzido digitalmente. As cenas não são filmagens da equipe nem das instalações reais da Padrão Pneus.</figcaption>
         </figure>
       </div>
-      <dialog class="brand-film-dialog" id="brand-film-dialog" aria-label="Apresentação institucional da Padrão Pneus" aria-describedby="brand-film-dialog-note">
-        <div class="brand-film-dialog-top"><span>PADRÃO PNEUS · FILME INSTITUCIONAL</span><button class="brand-film-close" id="brand-film-close" type="button" aria-label="Fechar vídeo">✕ <span>Fechar</span></button></div>
-        <video class="brand-film-player" id="brand-film-player" controls playsinline preload="none" aria-label="Vídeo institucional ilustrativo da Padrão Pneus">
-          <source src="assets/videos/gemini_generated_video_a4915775.mp4" type="video/mp4">
-          Seu navegador não suporta a reprodução do vídeo. Consulte os serviços nesta página.
-        </video>
-        <p id="brand-film-dialog-note">Produção institucional ilustrativa. Pessoas e ambientes do vídeo foram gerados digitalmente e não representam a equipe real nem as instalações da Padrão Pneus.</p>
-      </dialog>
     </section>
 
     <!-- Registros reais enviados pela OT: conferir autorização de imagem e uso comercial antes de oficializar. -->
