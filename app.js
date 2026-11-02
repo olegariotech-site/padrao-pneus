@@ -194,7 +194,7 @@ quoteForm?.addEventListener('submit',event=>{
  const service=document.querySelector('#service').value.trim();
  const vehicle=document.querySelector('#vehicle').value.trim();
  const details=document.querySelector('#details').value.trim();
- const result='Olá, equipe Padrão Pneus! Gostaria de solicitar um orçamento.\nServiço: '+service+'\nVeículo: '+vehicle+(details?'\nDetalhes: '+details:'');
+ const result='Olá, equipe Padrão Pneus! Gostaria de solicitar um orçamento.\nServiço: '+service+'\nVeículo: '+vehicle+(details?'\nDetalhes: '+details:'')+'\n\nOrigem: site da Padrão Pneus';
  document.querySelector('#quote-message').textContent=result;
  const sendQuote=document.querySelector('#send-quote');
  if(sendQuote)sendQuote.href='https://wa.me/5519974215389?text='+encodeURIComponent(result);
