@@ -1454,3 +1454,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     pointer-events:none;
   }
 }
+
+/* OT Design Hub — WhatsApp mobile compacto, sem cobrir a leitura durante a rolagem.
+   O rótulo permanece no aria-label do link; o CTA do formulário tem prioridade. */
+@media (max-width:850px){
+  .whatsapp-float,
+  .whatsapp-float:hover,
+  .whatsapp-float:focus-visible,
+  .whatsapp-float:focus-within {
+    width:54px;
+    height:54px;
+    min-width:54px;
+    padding:0;
+    gap:0;
+    right:12px;
+    bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    transform:none;
+    box-shadow:0 6px 18px rgba(0,0,0,.32);
+  }
+  .whatsapp-float .whatsapp-icon {
+    width:26px;
+    height:26px;
+    min-width:26px;
+    flex:0 0 26px;
+  }
+  .whatsapp-float .whatsapp-float-label{display:none}
+}
