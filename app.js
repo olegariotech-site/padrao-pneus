@@ -213,3 +213,26 @@ document.querySelector('#copy-quote')?.addEventListener('click',async event=>{
  try{await navigator.clipboard.writeText(message);event.target.textContent='Mensagem copiada ✓';}
  catch{event.target.textContent='Selecione e copie a mensagem acima';}
 });
+
+// OT Design Hub — vídeo institucional somente após clique, com pausa ao fechar.
+const brandFilmDialog=document.querySelector('#brand-film-dialog');
+const brandFilmLink=document.querySelector('[data-brand-film-open]');
+const brandFilmPlayer=document.querySelector('#brand-film-player');
+const brandFilmClose=document.querySelector('#brand-film-close');
+if(brandFilmDialog && brandFilmLink && brandFilmPlayer && typeof brandFilmDialog.showModal==='function'){
+  brandFilmLink.addEventListener('click',event=>{
+    event.preventDefault();
+    brandFilmDialog.showModal();
+    const playResult=brandFilmPlayer.play();
+    playResult?.catch?.(()=>{/* Reprodução manual segue disponível pelos controles. */});
+  });
+  brandFilmClose?.addEventListener('click',()=>brandFilmDialog.close());
+  brandFilmDialog.addEventListener('click',event=>{
+    if(event.target===brandFilmDialog)brandFilmDialog.close();
+  });
+  brandFilmDialog.addEventListener('close',()=>{
+    brandFilmPlayer.pause();
+    try{brandFilmPlayer.currentTime=0;}catch{/* Fonte ainda não carregada. */}
+    brandFilmLink.focus({preventScroll:true});
+  });
+}
