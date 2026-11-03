@@ -267,3 +267,23 @@ if(brandLoopVideo && brandLoopSource){
   else motionPreference.addListener?.(resume);
   connection?.addEventListener?.('change',resume);
 }
+
+// Fachada conceitual de identidade própria: pré-carregar a nova arte.
+// Enquanto o arquivo não existir no GitHub Pages, manter a imagem anterior sem erro visual.
+const facadeBrandImg=document.querySelector('#fachada .facade-photo img[data-facade-v2]');
+if(facadeBrandImg){
+  const candidate=new Image();
+  candidate.decoding='async';
+  candidate.onload=()=>{
+    facadeBrandImg.src=candidate.src;
+    facadeBrandImg.width=1672;
+    facadeBrandImg.height=941;
+    facadeBrandImg.alt='Visualização conceitual noturna da fachada Padrão Pneus com identidade própria nas cores azul, branco e vermelho. Imagem criada digitalmente; não representa a fachada atual.';
+    const figure=facadeBrandImg.closest('figure');
+    figure?.classList.add('facade-brand-v2');
+    const caption=figure?.querySelector('figcaption');
+    if(caption)caption.textContent='Proposta visual ilustrativa da marca · não representa a fachada atual';
+  };
+  candidate.onerror=()=>{/* Preservar a imagem anterior até o novo arquivo ser publicado. */};
+  candidate.src=facadeBrandImg.dataset.facadeV2+'?v=ot-brand-1';
+}

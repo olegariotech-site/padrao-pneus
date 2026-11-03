@@ -1602,3 +1602,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
  .social-showcase-link{width:100%;min-width:0;flex:auto}
 }
 @media(prefers-reduced-motion:reduce){.social-showcase-photo img,.social-showcase-link{transition:none!important}}
+
+/* Fachada OT — a nova arte só substitui a anterior se o arquivo existir.
+   Sem recorte parcial ou emendas quando a imagem de identidade própria estiver disponível. */
+.facade-showcase .facade-photo.facade-brand-v2 img {
+  aspect-ratio:1672/941;
+  object-fit:contain;
+  object-position:center;
+}
+.facade-showcase .facade-photo.facade-brand-v2::after {display:none}
