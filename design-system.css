@@ -1011,7 +1011,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     box-shadow:0 7px 26px rgba(0,0,0,.36),0 0 0 13px rgba(37,211,102,0);
   }
 }
-@media (prefers-reduced-motion:no-preference) {
+@media (prefers-reduced-motion:no-preference) and (min-width:851px) {
   .whatsapp-float:not(:hover):not(:focus-visible){
     animation:pp-whatsapp-breathe 10s ease-in-out infinite;
   }
@@ -1462,17 +1462,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
  .services .service-card .service-quote-link{min-height:44px;align-items:center}
 }
 
-/* OT Design Hub — evitar colisão do WhatsApp flutuante com formulário de orçamento. */
-@media (max-width:850px){
-  body.ot-quote-form-visible .whatsapp-float{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-  }
-}
-
-/* OT Design Hub — WhatsApp mobile compacto, sem cobrir a leitura durante a rolagem.
-   O rótulo permanece no aria-label do link; o CTA do formulário tem prioridade. */
+/* WhatsApp mobile: compacto, recolhimento discreto e prioridade do formulário.
+   O rótulo permanece no aria-label. Movimento reduzido já desativa transições globais. */
 @media (max-width:850px){
   .whatsapp-float,
   .whatsapp-float:hover,
@@ -1491,6 +1482,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     justify-content:center;
     transform:none;
     box-shadow:0 6px 18px rgba(0,0,0,.32);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s;
   }
   .whatsapp-float .whatsapp-icon {
     width:26px;
@@ -1499,6 +1491,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     flex:0 0 26px;
   }
   .whatsapp-float .whatsapp-float-label{display:none}
+  .whatsapp-float:hover .whatsapp-icon,.whatsapp-float:focus-visible .whatsapp-icon{transform:none}
+  .whatsapp-float:focus-visible{transition:none}
+  body.ot-whatsapp-scroll-hidden .whatsapp-float:not(:focus-within),
+  body.ot-quote-form-visible .whatsapp-float{
+    opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);
+  }
 }
 
 /* OT Design Hub | Padrão Pneus — filme institucional ilustrativo. */

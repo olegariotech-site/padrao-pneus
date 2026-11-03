@@ -144,12 +144,66 @@ document.querySelectorAll('[data-quote-service]').forEach(link=>link.addEventLis
 }));
 updateQuoteGuidance();
 const quoteForm=document.querySelector('#quote-form');
-// OT Design Hub — em telas pequenas, o atalho fixo não deve cobrir o formulário.
-// O WhatsApp no próprio formulário continua disponível durante toda a operação.
-if(quoteForm && 'IntersectionObserver' in window){
-  new IntersectionObserver(entries=>{
-    document.body.classList.toggle('ot-quote-form-visible',Boolean(entries[0]?.isIntersecting));
-  },{threshold:0}).observe(quoteForm);
+// WhatsApp flutuante mobile: direção confirmada, topo acessível e prioridade do formulário.
+const floatingWhatsApp=document.querySelector('.whatsapp-float');
+if(floatingWhatsApp){
+  const mobileFloat=window.matchMedia('(max-width:850px)');
+  const topZone=80, directionDistance=64;
+  const scrollPosition=()=>Math.min(Math.max(0,window.scrollY||0),Math.max(0,document.documentElement.scrollHeight-window.innerHeight));
+  let previousY=scrollPosition(), direction=0, distance=0, scheduled=false, formVisible=false;
+  const resetDirection=()=>{previousY=scrollPosition();direction=0;distance=0;};
+  const reveal=()=>document.body.classList.remove('ot-whatsapp-scroll-hidden');
+  const updateFormVisibility=visible=>{
+    formVisible=visible;
+    const hidden=mobileFloat.matches&&formVisible;
+    document.body.classList.toggle('ot-quote-form-visible',hidden);
+    // Não deixar o foco em um link que acabou de ser ocultado pelo formulário.
+    if(hidden&&floatingWhatsApp.contains(document.activeElement))quoteForm?.querySelector('select, input, button')?.focus();
+  };
+  const measureForm=()=>{
+    const rect=quoteForm?.getBoundingClientRect();
+    updateFormVisibility(Boolean(rect&&rect.top<window.innerHeight&&rect.bottom>0));
+  };
+  const observeForm=Boolean(quoteForm&&'IntersectionObserver' in window);
+  if(observeForm)new IntersectionObserver(entries=>updateFormVisibility(Boolean(entries[0]?.isIntersecting)),{threshold:0}).observe(quoteForm);
+  const updateScroll=()=>{
+    scheduled=false;
+    if(!observeForm)measureForm();
+    const y=scrollPosition(), delta=y-previousY;
+    if(!mobileFloat.matches||y<=topZone||floatingWhatsApp.contains(document.activeElement)){
+      reveal();resetDirection();return;
+    }
+    // Acumular deslocamento real, incluindo rolagem lenta, sem reagir a ruído subpixel.
+    if(Math.abs(delta)<1)return;
+    previousY=y;
+    const nextDirection=Math.sign(delta);
+    distance=nextDirection===direction?distance+Math.abs(delta):Math.abs(delta);
+    direction=nextDirection;
+    if(distance>=directionDistance){
+      document.body.classList.toggle('ot-whatsapp-scroll-hidden',direction>0);
+      distance=0;
+    }
+  };
+  window.addEventListener('scroll',()=>{
+    if(!scheduled){scheduled=true;window.requestAnimationFrame(updateScroll);}
+  },{passive:true});
+  let viewportWidth=window.innerWidth;
+  const updateViewport=()=>{
+    // Redimensionamento só da altura não deve reabrir o atalho recolhido.
+    if(window.innerWidth!==viewportWidth){
+      viewportWidth=window.innerWidth;reveal();resetDirection();
+    }else previousY=scrollPosition();
+    measureForm();
+  };
+  window.addEventListener('resize',updateViewport,{passive:true});
+  if(mobileFloat.addEventListener)mobileFloat.addEventListener('change',updateViewport);
+  else mobileFloat.addListener?.(updateViewport);
+  floatingWhatsApp.addEventListener('focus',()=>{reveal();resetDirection();});
+  document.addEventListener('keydown',event=>{
+    // Reintegrar o atalho à ordem natural de Tab, sem deslocar o foco do usuário.
+    if(event.key==='Tab'&&mobileFloat.matches&&!formVisible){reveal();resetDirection();}
+  });
+  measureForm();
 }
 
 quoteForm?.addEventListener('submit',event=>{
