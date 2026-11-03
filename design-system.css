@@ -1321,7 +1321,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .facade-showcase .facade-layout{
   display:grid;
-  grid-template-columns:minmax(0,.91fr) minmax(0,1.09fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   max-width:1120px;
   gap:clamp(28px,4.5vw,64px);
   margin-inline:auto;
@@ -1329,7 +1329,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .facade-showcase .facade-photo{
   display:grid;position:relative;isolation:isolate;overflow:hidden;
-  min-width:0;max-width:515px;margin:0;
+  min-width:0;margin:0;
   background:var(--pp-blue-night);
 }
 .facade-showcase .facade-photo img{
