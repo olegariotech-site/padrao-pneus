@@ -1559,11 +1559,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   grid-area:1/1;position:relative;isolation:isolate;overflow:hidden;aspect-ratio:16/9;
   background:var(--pp-blue-night) url('assets/06-servico-roda.webp') center/cover no-repeat;
 }
+/* WebKit iOS: não deixar o vídeo invisível até o evento playing.
+   A capa/poster e a imagem de fundo cobrem casos de autoplay bloqueado. */
 .brand-film-loop-video{
   position:absolute;inset:0;display:block;width:100%;height:100%;
-  object-fit:contain;background:transparent;opacity:0;transition:opacity .4s ease;pointer-events:none;
+  object-fit:contain;background:transparent;opacity:1;pointer-events:none;
 }
-.brand-film-loop-video.is-playing{opacity:1}
 .brand-film-loop-shade{
   position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 55%,rgba(8,18,30,.34));pointer-events:none;
