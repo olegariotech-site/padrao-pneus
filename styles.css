@@ -212,9 +212,16 @@
   background:linear-gradient(135deg,#833ab4 3%,#c13584 32%,#e1306c 57%,#fd1d1d 75%,#fcaf45 100%);
 }
 .social-facebook.social-icon-btn{background:#0866ff}
-.social-icon-btn:hover,.social-icon-btn:focus-visible{
-  transform:translateY(-3px) scale(1.08);filter:saturate(1.1);
-  box-shadow:0 8px 24px rgba(0,0,0,.42),0 0 0 3px rgba(255,255,255,.09);
+/* Movimentos curtos: social premium no mouse, sem salto exagerado. */
+@media (hover:hover) and (pointer:fine) {
+  .social-icon-btn:hover,.social-icon-btn:focus-visible{
+    transform:translateY(-2px) scale(1.035);filter:saturate(1.02);
+    box-shadow:0 7px 19px rgba(0,0,0,.32),0 0 0 2px rgba(255,255,255,.07);
+  }
+}
+@media (hover:none), (pointer:coarse) {
+  .social-icon-btn:hover:not(:focus-visible){transform:none;box-shadow:none;filter:saturate(.86)}
+  .social-icon-btn:active{transform:scale(.97);filter:brightness(1.06) saturate(1)}
 }
 .social-icon-btn:focus-visible{
   outline:2px solid #fff;outline-offset:3px;

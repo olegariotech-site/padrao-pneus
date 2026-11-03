@@ -407,6 +407,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .site-footer .social-badge img{display:block;height:20px;width:auto;max-width:20px;object-fit:contain}
 .site-footer .social-arrow{margin-left:auto;font-size:15px;color:var(--pp-muted-dark)}
+@media (hover:hover) and (pointer:fine) {
+  .site-footer .social-arrow{transition:transform var(--pp-motion-fast) var(--pp-motion-ease),color var(--pp-motion-fast) ease}
+  .site-footer .social-link:hover .social-arrow,
+  .site-footer .social-link:focus-visible .social-arrow{transform:translate(2px,-2px);color:#fff}
+}
 .site-footer .social-link:hover,.site-footer .social-link:focus-visible{
   color:#fff;border-bottom-color:var(--pp-white);transform:none;box-shadow:none;
 }
@@ -923,13 +928,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
    A11y: mínimo 44px de alvo e prefere movimento reduzido desativa os efeitos. */
 :root {
   --pp-motion-ease:cubic-bezier(.22,.75,.28,1);
-  --pp-motion-fast:190ms;
-  --pp-motion-normal:320ms;
+  --pp-motion-fast:155ms;
+  --pp-motion-normal:190ms;
 }
 .button,.navigation .nav-cta,.social-icon-btn,.social-link,
 .products-more>summary,.quote-result-actions button {
   -webkit-tap-highlight-color:transparent;
   touch-action:manipulation;
+}
+/* Links de navegação: filete vermelho surge sem alterar largura ou empurrar elementos.
+   Somente mouse preciso; menu touch continua com comportamento nativo. */
+@media (min-width:851px) {
+  .navigation>a:not(.nav-cta){position:relative}
+  .navigation>a:not(.nav-cta)::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+    background:var(--pp-red);
+    transform:scaleX(0);transform-origin:left center;
+    transition:transform var(--pp-motion-fast) var(--pp-motion-ease);
+    pointer-events:none;
+  }
+  .navigation>a:not(.nav-cta):focus-visible::after{transform:scaleX(1)}
+}
+@media (min-width:851px) and (hover:hover) and (pointer:fine) {
+  .navigation>a:not(.nav-cta):hover::after{transform:scaleX(1)}
 }
 .button,.navigation .nav-cta,.quote-result-actions button {
   transition:
@@ -965,8 +986,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .button-primary:hover,.button-primary:focus-visible,
   .work-gallery-cta .button:hover,.work-gallery-cta .button:focus-visible,
   .products-cta .button:hover,.products-cta .button:focus-visible {
-    transform:translateY(-3px);
-    box-shadow:0 12px 26px rgba(0,0,0,.18);
+    transform:translateY(-2px);
+    box-shadow:0 9px 22px rgba(0,0,0,.18);
   }
   .whatsapp-send:hover,.whatsapp-send:focus-visible {
     transform:translateY(-3px);
@@ -1046,6 +1067,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     transform:none!important;
   }
   .button-primary::before{display:none}
+  .navigation>a:not(.nav-cta)::after,.site-footer .social-arrow{
+    transition:none!important;
+  }
 }
 
 
