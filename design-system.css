@@ -1313,7 +1313,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 
 
-/* Fachada conceitual — mídia e legenda integradas, sem corte da imagem. */
+/* Fachada conceitual — enquadramento editorial reversível, preservando a imagem original no acervo. */
 .facade-showcase{
   padding-block:clamp(40px,5vw,66px);
   color:var(--pp-white);
@@ -1335,11 +1335,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .facade-showcase .facade-photo img{
   display:block;grid-area:1/1;
   width:100%;height:auto;
-  aspect-ratio:1000/563;
-  object-fit:contain;
+  aspect-ratio:6/5;
+  object-fit:cover;
+  object-position:left center;
+}
+/* Composição com a marca no centro da atenção: suavizar a emenda lateral sem adulterar pixels. */
+.facade-showcase .facade-photo::after{
+  content:"";grid-area:1/1;align-self:stretch;justify-self:stretch;
+  z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent 76%,var(--pp-blue-night) 100%);
 }
 .facade-showcase .facade-photo figcaption{
-  grid-area:1/1;align-self:end;position:relative;z-index:1;
+  grid-area:1/1;align-self:end;position:relative;z-index:2;
   margin:0;padding:32px 16px 12px;
   color:var(--pp-white);
   background:linear-gradient(180deg,transparent,rgba(8,18,30,.94));
@@ -1427,6 +1434,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .facade-showcase{padding-block:40px 46px}
   .facade-showcase .facade-layout{gap:22px}
   .facade-showcase .facade-photo figcaption{padding:28px 12px 11px}
+  .facade-showcase .facade-photo::after{background:linear-gradient(90deg,transparent 83%,var(--pp-blue-night) 100%)}
   .facade-showcase h2{font-size:clamp(33px,9vw,44px);margin-bottom:16px}
   .facade-showcase h2::after{margin-top:14px}
   .facade-showcase .facade-copy p{font-size:13px;line-height:1.7}
